@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Stock Jewelry</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <div class="main-container" #main>
+        <div class="manu-container" #sub1>
+            <div #imgBtn1 class="menu-items menu-1" (click)="openListPage(1)">
+                <div class="menu-txt">Ring</div>
+            </div>
+            <div #imgBtn2 class="menu-items menu-2" (click)="openListPage(2)">
+                <div class="menu-txt">Earring</div>
+            </div>
+            <div #imgBtn3 class="menu-items menu-3" (click)="openListPage(4)">
+                <div class="menu-txt">Pendant</div>
+            </div>
+            <div #imgBtn4 class="menu-items menu-4" (click)="openListPage(0)">
+                <div class="menu-txt">Others</div>
+            </div>
+            <div #imgBtn5 class="menu-items-full menu-5" (click)="openListPage('')">
+                <div class="menu-txt-full">View All Jewelry</div>
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="middle-conainer" #sub2 [style.height]="sub2Height" >
+            <img class="logo-img" src="./assets/imgs/Logowithshadow.png" />
+        </div>
+    </div>
+</ion-content>
+
+<ion-footer>
+    <img src="./assets/imgs/DiamondBackgroundPNG.png" />
+</ion-footer>

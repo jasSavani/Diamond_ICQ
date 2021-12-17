@@ -1,0 +1,184 @@
+<!--
+  Generated template for the JdetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <ion-title>Jewellery Detail</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <div class="ni-sliders">
+        <div [ngSwitch]="diamond" class="d-segment">
+            <ion-slides *ngSwitchCase="'silver'">
+                <ion-slide *ngFor="let silverImg of silverImgData;">
+                    <img *ngIf="silverImg" src="{{silverImg}}" class="slide-image ni-slide" />
+                    <div *ngIf="silverImg">
+                        <button ion-button icon-only class="share-btn" (click)="downloadImage(silverImg)">
+                            <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                        </button>
+                        <button ion-button icon-only class="share-btn" (click)="shareImage(silverImg)"
+                            style="top: 65px">
+                            <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                        </button>
+                    </div>
+                    <img *ngIf="!silverImg" src="./assets/imgs/no-image.png" class="slide-image ni-slide" />
+                </ion-slide>
+            </ion-slides>
+
+            <ion-slides *ngSwitchCase="'gold'">
+                <ion-slide *ngFor="let goldImg of goldImgData;">
+                    <img src="{{goldImg}}" class="slide-image ni-slide" />
+                    <div *ngIf="goldImg">
+                        <button ion-button icon-only class="share-btn" (click)="downloadImage(goldImg)">
+                            <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                        </button>
+                        <button ion-button icon-only class="share-btn" (click)="shareImage(goldImg)" style="top: 65px">
+                            <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                        </button>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+            <ion-slides *ngSwitchCase="'rose'">
+                <ion-slide *ngFor="let roseImg of roseImgData;">
+                    <img src="{{roseImg}}" class="slide-image ni-slide" />
+                    <div *ngIf="roseImg">
+                        <button ion-button icon-only class="share-btn" (click)="downloadImage(roseImg)">
+                            <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                        </button>
+                        <button ion-button icon-only class="share-btn" (click)="shareImage(roseImg)" style="top: 65px">
+                            <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                        </button>
+                    </div>
+                </ion-slide>
+            </ion-slides>
+
+            <ion-segment class="btn-segment" [(ngModel)]="diamond">
+                <ion-segment-button value="silver">
+                    WHITE Gold
+                </ion-segment-button>
+                <ion-segment-button value="gold">
+                    YELLOW Gold
+                </ion-segment-button>
+                <ion-segment-button value="rose">
+                    ROSE Gold
+                </ion-segment-button>
+            </ion-segment>
+        </div>
+    </div>
+
+    <ion-list class="information">
+
+        <ion-item-divider>
+            <span class="item-left">RATE</span>
+            <span class="item-right">{{prodDetailData.RATE}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left">PRODUCT CODE</span>
+            <span class="item-right">{{prodDetailData.PRD_CODE}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left">SHAPE</span>
+            <span class="item-right">{{prodDetailData.S_CODE}}</span>
+        </ion-item-divider>
+
+
+        <!-- <ion-item-divider>
+        <span class="item-left">COMPUTER NAME</span>
+        <span class="item-right">{{prodDetailData.COMPUTERNAME}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+        <span class="item-left">USERNAME</span>
+        <span class="item-right">{{prodDetailData.USERNAME}}</span>
+        </ion-item-divider> -->
+    </ion-list>
+
+
+    <ion-grid class="grid-title">
+
+        <ion-row>
+            <ion-col col-3 class="hc1">
+                <span class="d-top">
+                    <span>Ring Ct</span>
+                </span>
+
+            </ion-col>
+            <!-- <ion-col col-2 class="hc2">
+        <span class="d-top">
+          <span>Ring Price</span>
+        </span>
+        
+      </ion-col> -->
+
+            <ion-col col-3 class="hc3">
+                <span class="d-top">
+                    <span>Price</span>
+                </span>
+
+            </ion-col>
+            <ion-col col-2 class="hc4">
+                <span class="d-top">
+                    <span>Stock</span>
+                </span>
+
+            </ion-col>
+
+            <ion-col col-4 class="hc5">
+                <span class="d-top">
+                    <span>Stock Number</span>
+                </span>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="grid-data">
+
+        <ion-row *ngFor="let sDate of sizeData;">
+
+            <ion-col col-3 class="hc1">
+                <span class="d-top">
+                    <span>{{sDate.SZ_NAME}}</span>
+                </span>
+
+            </ion-col>
+            <!-- <ion-col col-2 class="hc2">
+        <span class="d-top">
+          <span>{{sDate.RING_RATE}}</span>
+        </span>
+        
+      </ion-col> -->
+
+            <ion-col col-3 class="hc3">
+                <span class="d-top">
+                    <span>{{sDate.WEB_RATE}}</span>
+                </span>
+
+            </ion-col>
+            <ion-col col-2 class="hc4">
+                <span class="d-top">
+                    <span>{{sDate.STOCK}}</span>
+                </span>
+
+            </ion-col>
+
+            <ion-col col-4 class="hc5">
+                <span class="d-top">
+                    <span>{{sDate.STOCK_NO}}</span>
+                </span>
+            </ion-col>
+
+        </ion-row>
+    </ion-grid>
+
+
+
+
+</ion-content>

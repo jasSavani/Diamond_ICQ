@@ -1,0 +1,186 @@
+page-invoices {
+
+    .toolbar-background {
+        background-image: url('../../assets/imgs/header_back.jpg')!important;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .main-container {
+        .top-container {
+            .text-input-md, page-search .text-input-ios {
+                margin: 5px 8px;
+                padding: 0;
+                width: calc(100% - 8px - 8px);
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .fitler-input {
+                border: 1px solid #cbc7b8;  
+                background-color: fff;
+                width: 100%;       
+                text-align: center;
+                color: color($colors,dark);  
+                border-radius: 5px;
+             }
+
+             .text-title {
+                 padding-top: 7px;
+                 padding-right: 10px;
+             }
+
+             .btn-contain {
+                justify-content: center; 
+                flex-direction: row; 
+                width: 50%;
+                text-align: center;
+                margin: auto;
+             }
+
+             .btn-data {
+                padding-bottom:0px;
+                margin: 0px !important;
+                border: 1px solid #867c59;
+                box-shadow: none;
+                border-radius: 30px;
+                width: 80%;
+                
+             }
+
+             .reset-btn {
+                 background-color: #ffffff;
+                 color: #867c59;
+             }
+
+             .select-md, .select-ios {
+                padding: 4px 0 0;
+            }
+
+            ion-select {
+                max-width: 100%;
+            }
+
+            .select-md .select-icon, .select-ios .select-icon {
+                width: 20px;
+            }
+
+            .select-contain {
+                width: 50% !important;
+                float: left;
+                flex: auto;
+                border: 1px solid #cbc7b8;
+                padding: 0 5px;
+                height: 26px;
+                margin-top: 5px;
+                border-radius: 5px;
+            }
+
+            .date-picker-contain {
+                padding: 6px;
+                border: 1px solid #cbc7b8;
+                border-radius: 5px;
+                width: 100%;
+                float: left;
+            }
+        }
+
+        .bottom-container {
+            overflow-x:scroll;
+            overflow-y: hidden;
+            padding-bottom: 10px;
+
+            .title-container {
+                text-align: center;
+                width: 100%;
+                white-space:nowrap; 
+                float: left;
+                display: block;
+                // width: 565%;
+
+                .fields {
+                    background: #867c59;
+                    color: #ffffff;
+                    border-radius: 7px;
+                }
+            }
+
+            .list-item {
+                margin-top: 10px;
+            }
+
+            .list-item-container {
+                text-align: center;
+                width: auto;
+                white-space:nowrap; 
+                float: left;
+                display: block;
+                // width: 565%;
+            }
+
+            .fields {
+                display: inline-block;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                margin: 3px 5px;
+                text-transform: capitalize;
+                white-space: normal;
+            }
+
+            .list-item-container:nth-of-type(odd) {
+                background:#e3ddcd;
+            }
+                    
+            .list-item-container:nth-of-type(even) {
+                background:#ffffff;
+            }
+            .field-1 {
+                width: 100px;
+            }
+            .field-2 {
+                width: 100px;
+            }
+            .field-3 {
+                width: 100px;
+                text-transform: capitalize;
+            }
+            .field-4 {
+                width: 80px;
+            }
+            .field-5 {
+                width: 100px;
+                white-space: normal;
+            }
+            .field-6 {
+                width: 60px;
+            }
+            .field-7 {
+                width: 70px;
+            }
+            .field-8 {
+                width: 110px;
+            }
+            .field-9 {
+                width: 110px;
+            }
+            .field-10 {
+                width: 150px;
+            }
+            .field-11 {
+                width: 110px;
+            }
+            .field-12 {
+                width: 130px;
+            }
+            .field-13 {
+                width: 150px;
+            }
+            .edit-fields {
+                text-decoration: underline;
+                color: #0000ff;
+            }
+        }
+    }
+
+}

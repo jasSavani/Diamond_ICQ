@@ -1,0 +1,340 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+ion-img {
+	
+	background: transparent !important;
+
+}
+
+ion-app {
+    // margin-top: env(safe-area-inset-top);
+    // margin-bottom: env(safe-area-inset-bottom)
+}
+
+.toolbar {
+    // padding: 0px;
+    // min-height: 44px !important;
+    // max-height: 44px !important;
+}
+
+.input-cover
+{
+    display: none !important;
+}
+.card-md p , .card-ios p {
+   
+    /*color:#000 ;*/
+}
+.toolbar-title-md , .toolbar-title-ios{
+    padding: 0 12px;
+    font-size: 20px;
+	font-weight: 500;
+}
+
+.toolbar-ios ion-title {
+    padding: 0;
+}
+
+.center{
+    text-align: center;
+}
+
+ion-app.md , ion-app.ios {
+
+    font-size: 1.4rem ;
+    // font-family: "OpenSans"  !important;;
+   
+}
+.footer-div.toolbar.toolbar-md , .footer-div.toolbar.toolbar-ios  {
+	min-height: 40px !important;
+}
+.bar-button-default-md , .bar-button-default-md:hover:not(.disable-hover), .bar-button-clear-md-default:hover:not(.disable-hover), .bar-button-md-default:hover:not(.disable-hover) ,.bar-button-default-ios , .bar-button-default-ios:hover:not(.disable-hover), .bar-button-clear-ios-default:hover:not(.disable-hover), .bar-button-ios-default:hover:not(.disable-hover) {
+	color:#fff
+}
+.toolbar-title-md, .toolbar-title-ios {
+	color: #fff;
+	// margin-right: 55px;
+	text-align:center;
+}
+.toolbar-background-md , .toolbar-background-ios{
+	border-color: #b2b2b2;
+	background:color($colors,primary);
+}
+
+//******** menu *********//
+
+.ion-md-menu:before{
+    background:url('../assets/imgs/shape/menu.png') no-repeat;
+    background-size: cover;
+   
+    color: transparent;
+    width: 25px;
+   
+
+    
+}
+.menu-label {
+    padding-left: 10px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: .5px;
+}
+.menu-inner > ion-header, .menu-inner > ion-content, .menu-inner > ion-footer {
+    position: absolute;
+    background: color($colors,primary);
+}
+.p-img img {
+    background: #fff;
+    padding: 5px;
+}
+.profile{
+	width: 86%;
+    float: left;
+    text-align: center;
+    margin: 25px 7% 12px;
+}
+.main-menu .toolbar-title-md ,.main-menu .toolbar-title-ios {
+	 margin-right: 0px;
+	
+}
+.p-img{
+	width:25%;  
+	float:left;
+	
+}
+.p-info {
+    width: 75%;
+    float: right;
+    text-align: left;
+    padding: 10px 15px;
+    
+}
+.md .menu-inner {
+    background: url('../assets/imgs/about-bg2.jpg') no-repeat;
+    background-size: cover;
+
+}
+.ni {
+	padding: 10px 10px !important;
+}
+.p-info p {
+	font-size: 12px;
+	margin:0;
+}
+img.shk-icon {
+	border-radius: 45px;
+}
+
+.p-info h6 {
+	font-size: 1.5rem;
+	font-weight: bold;
+	margin-top: 0;
+	margin-bottom: 0.7rem;
+	}
+.menu-label{
+	padding-left:16px;
+}
+.snj-icon{
+   
+    width: 17px;
+  
+    vertical-align: middle;
+} 
+
+.snjmenu .item-md , .snjmenu .item-ios {
+background-color: color($colors,primary);
+padding-left:30px;
+}
+.snjmenu .list-md, .snjmenu .list-ios {
+	margin:0;
+}
+.snjmenu .list-md .item-block .item-inner ,.snjmenu .list-ios .item-block .item-inner {
+    border-bottom: 0px solid #dedede;
+}
+.fa-bell:before ,.fa-tasks:before , .fa-eye:before{
+    
+    margin-right: -2px;
+}
+.fa-user:before {
+   
+    margin-right: 2px;
+}
+.snjmenu .item-block{
+	min-height: 4rem;
+}
+.snjmenu .label-md ,.snjmenu .label-ios{
+    margin: 0px 8px 0px 0;
+}
+button.menuborder.item.item-block.item-md ,button.menuborder.item.item-block.item-ios {
+    border-bottom: 1px solid #e2e2e2;
+}
+.cartitem {
+    color: #f7f4f4 !important;
+    font-size: 11px !important;
+    background: #2087c1;
+    text-align: center;
+    border-radius: 27px;
+    height: 20px;
+    width: 20px;
+    font-weight: bold;
+    margin-left: 19px;
+    padding-top: 2px;
+}
+p.cartitem {
+	float: right;
+}
+// ************************** //
+button.disable-hover.alert-button.alert-button-md.cart.alert-button-default.alert-button-default-md ,button.disable-hover.alert-button.alert-button-ios.cart.alert-button-default.alert-button-default-ios{
+	text-align: center;
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: color($colors,primary);
+    background-color: #fff;
+    margin: 0 0px 0 0 !important;
+    padding: 10px;
+    border-top: 1px solid color($colors,primary);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    width: 50%;
+}
+button.disable-hover.alert-button.alert-button-md.cart.bgcolor.alert-button-default.alert-button-default-md ,button.disable-hover.alert-button.alert-button-ios.cart.bgcolor.alert-button-default.alert-button-default-ios {
+    background: color($colors,primary);
+	color: #fff;
+}
+ .alert-md .alert-button-group ,  .alert-ios .alert-button-group  {
+    padding: 0;
+}
+.alertbox .alert-head {
+    text-align: center;
+    padding: 16px 20px 15px;
+    border-bottom: 1px solid color($colors,primary);
+}
+.alertbox .alert-message {
+    color: rgba(0, 0, 0, 0.5);
+    padding: 0 24px 15px;
+	text-align: center;
+	font-size:12px;
+}
+.alert-md .alert-input , .alert-ion .alert-input {
+    border-bottom: 1px solid color($colors,border);
+    text-align: center;
+    margin: 0;
+}
+.alertbox .alert-title {
+    font-size: 15px;
+    font-weight: bold;
+
+}
+.alertbox .alert-wrapper {
+    border-radius: 5px;
+    background: #fff;
+}
+ ion-alert.alert-top {
+   
+   
+    -webkit-align-items:center;
+  
+   align-items: center;
+} 
+.alert-md .alert-button .button-inner ,.alert-ios .alert-button .button-inner {
+    -webkit-justify-content: center;
+    
+      justify-content: center;
+  }
+ .alert-md .alert-input-group , .alert-ios .alert-input-group {
+    
+   padding: 0 ;
+   
+  
+}
+.alert-md .alert-message , .alert-ios .alert-message{
+    padding: 15px;
+}
+.alert-md .alert-input:focus , .alert-ios .alert-input:focus {
+    margin-bottom: 0px;
+    border-bottom: 1px solid color($colors,primary);
+}
+.alert-input {
+    padding: 12px 0;
+}
+.alert-md .alert-radio-group, .alert-md .alert-checkbox-group , .alert-ios .alert-radio-group, .alert-ios .alert-checkbox-group {
+        
+    border-top: 0;
+    border-bottom: 0;
+} 
+.alert-md .alert-head ,.alert-ios .alert-head {
+
+    text-align: center;
+    padding: 8px;
+    border-bottom: 1px solid color($colors,primary);
+    
+}
+.alert-md .alert-title ,.alert-ios .alert-title {
+    font-size: 20px;
+}
+.alert-md .alert-checkbox-label , .alert-ios .alert-checkbox-label {
+  
+    padding: 7px 26px;
+}
+.alert-md .alert-tappable , .alert-ios .alert-tappable {
+   
+    min-height: 2.4rem;
+}
+.alert-md .alert-button , .alert-ios .alert-button {
+   
+    color: #fafafa;
+    background-color: color($colors,primary);
+    margin: 0 ;
+    width: 50%;
+    border-radius: 0;
+
+}
+button.active{
+    background: #3781b1 !important;
+   
+}
+.snjmenu hr {
+        background-color: #ffffff;
+        opacity: 0.1;
+        margin: 0;
+    }
+    .snjmenu .scroll-content{
+        margin-top: 90px !important;
+    }
+    .header-md::after ,     .snj>.header-ios::after {
+        
+        background-image: unset !important;
+        
+    }
+
+    .toolbar-background {
+        background-image: url('../../assets/imgs/header_back.jpg')!important;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    .toolbar-title {
+        text-shadow: 3px 3px 4px #000000;
+    }
+
+    .text-input-ios {
+        margin: 5px;
+    }

@@ -1,0 +1,172 @@
+page-stock-jewelry-list {
+    .main-container {
+        .top-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            .top-left-contain {
+                display: flex;
+            }
+            .top-center-contain {
+
+            }
+            .top-right-contain {
+                display: flex;
+            }
+
+            .top-contain-txt {
+                padding-left: 5px;
+                color: #867c59;
+            }
+
+            .filter-img {
+                img {
+                    width: 16px;
+                }
+            }
+        }
+
+        .list-container {
+            display: flex;
+            margin-bottom: 5px;
+            padding: 3px 10px;
+            background: #f9f9f9;
+
+            .left-container {
+                width: 35%;
+
+                img {
+                    box-shadow: 0px 1px 17px 1px rgba(0,0,0,0.17);
+                    border-radius: 20px;
+                }
+            }
+
+            .right-container {
+                width: 65%;
+                display: table;
+                
+                .right-container-inner {
+                    padding: 10px;
+                    display: table-cell;
+                    vertical-align: middle;
+
+                    .right-title-txt {
+                        color: #8c8b6a;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 18px;
+                        margin-bottom: 5px;
+                    }
+
+                    .right-desc-txt {
+                        text-align: center;
+                        word-spacing: 5px;
+                        line-height: 20px;
+                    }
+
+                    .other-desc {
+                        background-color: #89795f;
+                        border-radius: 25px;
+                        padding: 3px 10px;
+                        color: #ffffff;
+                        width: 50px;
+                    }
+
+                    .right-price-txt {
+                        color: #ffffff;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 18px;
+                        background-color: #89795f;
+                        margin: 10px auto 5px;
+                        padding: 3px;
+                        width: 120px;
+                        border-radius: 25px;
+                        
+                    }
+                } 
+            }
+        }
+
+        .bottom-container {
+            overflow-x:scroll;
+            overflow-y: hidden;
+            padding-bottom: 10px;
+
+            .title-container {
+                text-align: center;
+                width: 100%;
+                white-space:nowrap; 
+                float: left;
+                display: block;
+                // width: 565%;
+
+                .fields {
+                    background: #867c59;
+                    color: #ffffff;
+                    border-radius: 7px;
+                }
+            }
+
+            .list-item {
+                margin-top: 10px;
+            }
+
+            .list-item-container {
+                text-align: center;
+                width: auto;
+                white-space:nowrap; 
+                float: left;
+                display: block;
+                // width: 565%;
+            }
+
+            .fields {
+                display: inline-block;
+                padding-top: 3px;
+                padding-bottom: 3px;
+                margin: 3px 2px;
+                text-transform: capitalize;
+                white-space: normal;
+            }
+
+            .list-item-container:nth-of-type(odd) {
+                background:#e3ddcd;
+            }
+                    
+            .list-item-container:nth-of-type(even) {
+                background:#ffffff;
+            }
+            .field-1 {
+                width: 50px;
+            }
+            .field-2 {
+                width: 50px;
+            }
+            .field-3 {
+                width: 50px;
+                text-transform: capitalize;
+            }
+            .field-4 {
+                width: 60px;
+            }
+            .field-5 {
+                width: 110px;
+                white-space: normal;
+            }
+            .field-6 {
+                width: 90px;
+            }
+            .field-7 {
+                width: 90px;
+            }
+            .field-8 {
+                width: 55px;
+            }
+        }
+
+        
+    }
+}

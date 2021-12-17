@@ -1,0 +1,51 @@
+<!-- <ion-header>
+ <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+ <button ion-button secondary menuToggle>Toggle Menu</button>
+</ion-header>-->
+
+<ion-content>
+  <div class="img-bg">
+    <div padding style="position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 100%;">
+      <div class="center">
+        <ion-img class="logo" src="../../assets/imgs/icqlogo.png"></ion-img>
+      </div>
+
+      <ion-list padding no-line>
+        <ion-item class="envelope">
+          <ion-input colors="primary" style="margin-left: 40px; font-size: 14px;" [(ngModel)]="username" type="text"
+            placeholder="Username" value=""></ion-input>
+        </ion-item>
+
+        <ion-item class="lock">
+          <ion-input [type]="passwordType" style="margin-left: 40px; font-size: 14px;" [(ngModel)]="password"
+            placeholder="Password" value=""> </ion-input>
+        </ion-item>
+        <i class="fa fa-eye" (click)="hideShowPassword()"></i>
+      </ion-list>
+      <!-- <ion-item>
+    <ion-label>Remember me</ion-label> 
+    <ion-checkbox></ion-checkbox>
+  </ion-item> -->
+
+
+
+      <div class="signin-btn">
+        <!--  <button ion-button color="primary"  (click)="doLogin()" block>Sign In</button>-->
+        <button ion-button color="primary" (click)="doLogin()" block>Sign In</button>
+      </div>
+      <!-- <p class="link"  (click)="goToforgotpswd()">Forgot UserId/Password?</p>
+  <div class="c-acc" padding>
+    <p class="p-label">Don't have account?</p>
+    <p class="c-account" (click)="goToreg()">Create an account?</p>
+  </div> -->
+    </div>
+  </div>
+</ion-content>

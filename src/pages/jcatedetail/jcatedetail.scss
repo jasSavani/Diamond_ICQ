@@ -1,0 +1,181 @@
+page-jcatedetail {
+
+
+    ion-title.title.title-md {
+        flex: auto;
+        text-align: left;
+        float: left;
+        // margin-top: 10px;
+    }
+
+    .p-totalrecord {
+        padding: 0px;
+        margin: 0px;
+        float: right;
+        flex: auto;
+        margin-top: 3px;
+        margin-right: 15px;
+        color: #ffffff;
+    }
+
+
+    .row-view{
+        margin: 0px;
+        padding: 0px;
+        //padding-top: 25px;
+    }
+
+    .col-view{
+        margin: 0px;
+        padding: 0px;
+        padding-bottom: 25px;
+       
+    }
+
+
+    .div-item{
+        margin: 0px;
+        padding: 0px;
+       // float: left;
+        align-items: center;
+        text-align: center;
+    }
+
+    .img-category{
+      width: 90px;
+      height: 90px;
+    }
+
+    .cat-name{
+        font-size: 10px;
+        color: #333333;
+        white-space: normal;
+        padding: 0px;
+    margin: 0px;
+    }
+
+    .list-avatar-page {
+        ion-note {
+          font-size: 12px;
+          align-self: flex-start;
+          margin-top: 14px;
+        }
+      }
+
+
+      .row-main{
+        background: gray;
+        border: think solid black;
+      }
+
+      .lbl-shape .label-md  {
+       margin: 0px 8px 0px 0;
+       }
+     
+       .item-divider-md {
+        padding-left: 16px;
+        border-bottom: 1px solid #dedede;
+        font-size: 1.4rem;
+        color: #858585;
+        background-color: #fff;
+        display: none;
+    }
+      
+      .lbl-shape .grid
+      {
+        padding: 0px;
+        margin: 5px;
+      }
+
+    .col {
+        padding: 5px 0px;
+    }
+
+    .grid-data .col , .grid-title .col{
+        padding:5px 0;
+        text-align: center;
+    }
+
+      .search-block {
+        background: #fff;
+    }
+
+    .shape-col {
+        width: 18% !important;
+        max-width: 18% !important;     
+     
+        -webkit-flex-basis: none;
+        -ms-flex-preferred-size: none;
+        flex-basis: none;
+        flex: auto;
+        -webkit-box-flex: none;
+        -webkit-flex-grow: unset; 
+        -ms-flex-positive: none;
+    }
+
+    .filter-label2 {
+        text-align:left;
+       
+        color: color($colors,light);  
+        margin:14px 0px;
+       
+        line-height: 0em;
+      
+    }
+    
+    .shape-box.shape-box1 {      
+       
+        border-radius: 0px !important;
+     /* box-shadow: 0px 0px 3px 1px #ddd;*/
+        border: 0;
+        color: color($colors,dark);  
+        padding:0;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        display: inline-block;
+        width:50px;
+        margin:0 3px;
+        text-align: center;
+      }
+      ion-col .shape-box1.active {      
+         
+        background: color($colors,primary);
+        color:#fff;
+       
+      }
+
+            
+      .shape-box .shape-img {
+       
+        width: 25px;
+        margin: 3px 0;
+    }
+
+    .shape-box span {
+        font-size: 9px;
+        padding-top: 0px; 
+        display: block;
+       
+  }
+
+  .scroll-zoom-wrapper{
+    white-space: nowrap;
+    }
+
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        height:33px;
+        overflow: hidden;
+         width:100%;
+       /*  box-shadow: 0 0 15px 0px #f1f1f1;*/
+         border-radius: 20px;
+        .scroll-item {
+            display: inline-block;
+            width: 55px;
+            margin: 5px 0px 0px 0px;
+
+        }
+  
+          
+      }
+}

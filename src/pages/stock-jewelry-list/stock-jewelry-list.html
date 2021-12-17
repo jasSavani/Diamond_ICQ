@@ -1,0 +1,143 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title *ngIf="pageOption == 1">Stock Rings</ion-title>
+        <ion-title *ngIf="pageOption == 2">Stock Earrings</ion-title>
+        <ion-title *ngIf="pageOption == 4">Stock Pendant</ion-title>
+        <ion-title *ngIf="pageOption == 0">Stock Others</ion-title>
+
+       
+    </ion-navbar>
+    <div class="main-container">
+        <div class="top-container" style="padding: 16px 16px 0 16px;">
+            <div class="top-left-contain" (click)="openSearch()">
+                <div class="filter-img">
+                    <img src="./assets/imgs/filter.png" />
+                </div>
+                <div class="top-contain-txt">
+                    Short & Filters
+                </div>
+            </div>
+            <div class="top-center-contain top-contain-txt">
+                {{totalRecord}} Result
+            </div>
+            <div class="top-right-contain" (click)="changeGrid(!isGrid)">
+                <div class="filter-img">
+                    <img *ngIf="isGrid" src="./assets/imgs/grid.png" />
+                    <img *ngIf="!isGrid" src="./assets/imgs/list.png" />
+                </div>
+                <div class="top-contain-txt">
+                    View
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-header>
+
+
+<ion-content>
+    <div class="main-container">
+        <div  *ngIf="isGrid">
+            <div class="list-container" *ngFor="let result of searchResult" (click)="openDetailPage(result)">
+                <div class="left-container">
+                    <!-- <img src="./assets/imgs/ICQJewellery.jpeg" /> -->
+                    <img [src]="result.RingThumb" />
+                </div>
+                <div class="right-container">
+                    <div class="right-container-inner">
+                        <div class="right-title-txt">
+                            {{result.NAME}}
+                        </div>
+                        <div class="right-desc-txt">
+                            {{result.S_CODE | fullShape }} {{result.CARAT}} {{result.C_NAME}} {{result.Q_NAME}}
+                            {{result.CR_NAME}}
+                            {{result.CUT}} {{result.POL}}
+                            {{result.SYM}} {{result.FL_NAME}} {{result.design_no}} {{result.LR_NO}}
+                            <span class="other-desc" *ngIf="result?.DISPLAY_NO">
+                                {{result.DISPLAY_NO}}
+                            </span>
+                            <div class="right-price-txt">
+                                $ {{result.RING_PRICE}}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+
+        <div class="data-table bottom-container" *ngIf="!isGrid">
+            <div class="title-container">
+                <div class="fields field-1">
+                    Shp
+                </div>
+                <div class="fields field-2" (click)="sortingCt(ctOrder, 'CARAT')">
+                    Ct.
+                    <img src="./assets/imgs/arrow-up.png" *ngIf="ctOrder == 'ASC'"
+                        style="margin-left: 10px; width: 12px;" />
+                    <img src="./assets/imgs/arrow-down.png" *ngIf="ctOrder == 'DESC'"
+                        style="margin-left: 10px; width: 12px;" />
+                </div>
+                <div class="fields field-3">
+                    Col
+                </div>
+                <div class="fields field-4">
+                    Clt
+                </div>
+                <div class="fields field-5">
+                    C-P-S-Flo
+                </div>
+                <div class="fields field-6" (click)="sortingTag(tagOrder, 'RING_PRICE')">
+                    Tag $
+                    <img src="./assets/imgs/arrow-up.png" *ngIf="tagOrder == 'ASC'"
+                        style="margin-left: 10px; width: 12px;" />
+                    <img src="./assets/imgs/arrow-down.png" *ngIf="tagOrder == 'DESC'"
+                        style="margin-left: 10px; width: 12px;" />
+                </div>
+                <div class="fields field-7" (click)="sortingSkt(sktOrder, 'TAG_NO')">
+                    Skt. No.
+                    <img src="./assets/imgs/arrow-up.png" *ngIf="sktOrder == 'ASC'"
+                    style="margin-left: 10px; width: 12px;" />
+                    <img src="./assets/imgs/arrow-down.png" *ngIf="sktOrder == 'DESC'"
+                        style="margin-left: 10px; width: 12px;" />
+                </div>
+                <div class="fields field-8">
+                    Lab
+                </div>
+            </div>
+
+            <div class="list-item-container" *ngFor="let result of searchResult" (click)="openDetailPage(result)">
+                <div class="fields field-1">
+                    {{ result.S_CODE | shape }}
+                </div>
+                <div class="fields field-2">
+                    {{result.CARAT}}
+                </div>
+                <div class="fields field-3">
+                    {{result.C_NAME}}
+                </div>
+                <div class="fields field-4">
+                    {{result.Q_NAME}}
+                </div>
+                <div class="fields field-5">
+                    {{result.CUT}}-{{result.POL}}-{{result.SYM}}-{{result.FL_NAME}}
+                </div>
+                <div class="fields field-6">
+                    {{result.RING_PRICE}}
+                </div>
+                <div class="fields field-7">
+                    {{result.LR_NO}}
+                </div>
+                <div class="fields field-8">
+                    {{result.CR_NAME}}
+                </div>
+            </div>
+
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </div>
+</ion-content>

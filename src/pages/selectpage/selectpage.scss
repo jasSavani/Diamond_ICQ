@@ -1,0 +1,61 @@
+page-selectpage {
+    .txt-title{
+        text-align: center;
+    }
+
+    .card-view{
+        float: left;
+        width: 50%;
+        height: 31%;
+        margin: 0px;
+        padding: 0px;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    .lbl-text {
+        text-align: center;
+        font-size: 17px;
+        font-weight: bold;
+        margin-left: 2%;
+        color: #baaf84;
+    }
+        
+    .img-jewellery{
+        width: 100%;
+        height: 70%;
+        object-fit: contain;
+    }
+        
+    .img-ring{
+        width: 100%;
+        height: 70%;
+    //  margin-top: 25px;
+        object-fit: contain;
+        padding: 10px;
+    }
+
+    .img-ring-header {
+        width: 70%;
+        height: 100%;
+        object-fit: contain;
+    }
+    .img-ring-footer {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .card-md, .card-ios {
+        box-shadow: none;
+    }
+
+    .toolbar-background {
+        background-image: url('../../assets/imgs/header_back.jpg')!important;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+}
+

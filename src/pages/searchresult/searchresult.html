@@ -1,0 +1,253 @@
+<!--
+  Generated template for the SearchresultPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Diamonds</ion-title>
+        <ion-buttons end *ngIf="totalRecord" style="margin-right: 10px; color: #ffffff;">
+            <div>Total : {{ totalRecord }}</div>
+            
+        </ion-buttons>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content overflow-scroll="true">
+    <!--=======================  GIA Filter ====================================== -->
+
+    <!-- <ion-scroll scrollX="true" direction="x"> -->
+    <div class="data-table">
+
+        <ion-grid class="grid-title" style="overflow-x: auto;">
+
+            <ion-row>
+                <ion-col class="hc5" *ngIf="searchPost.isMEMO == 0 && userName == 'admin'" >
+                    <span class="d-top">
+                        <span>SKU</span>
+                    </span>
+                </ion-col>
+                
+                <ion-col class="hc1">
+                    <span class="d-top">
+                        <span>SH</span>
+                    </span>
+                </ion-col>
+                
+                <ion-col class="hc2">
+                    <span class="d-top">
+                        <span>CTS</span>
+                    </span>
+
+                </ion-col>
+
+                <ion-col class="hc3">
+                    <span class="d-top">
+                        <span>COL</span>
+                    </span>
+
+                </ion-col>
+                <ion-col class="hc4">
+                    <span class="d-top">
+                        <span>CLT</span>
+                    </span>
+
+                </ion-col>
+                <ion-col class="hc5">
+                    <span class="d-top">
+                        <span>C-P-S-FLO</span>
+                    </span>
+
+                </ion-col>
+
+                <ion-col class="hc7">
+                    <span class="d-top">
+                        <span>PRICE</span>
+                    </span>
+
+                </ion-col>
+
+                <ion-col class="hc8" *ngIf="searchPost.isMEMO == 1">
+                    <span class="d-top">
+                        <span>DIS</span>
+                    </span>
+                </ion-col>
+
+                <ion-col class="hc8" *ngIf="searchPost.isMEMO == 1">
+                    <span class="d-top">
+                        <span>POS</span>
+                    </span>
+                </ion-col>
+
+                <ion-col class="hc1">
+                    <span class="d-top">
+                        <span>LAB</span>
+                    </span>
+                </ion-col>
+
+                <ion-col class="hc6" *ngIf="searchPost.isMEMO == 0">
+                    <span class="d-top">
+                        <span>CERT</span>
+                    </span>
+                </ion-col>
+
+                
+            </ion-row>
+        </ion-grid>
+        <!------search result title--------->
+
+
+        <!------search result data--------->
+
+        <ion-grid class="grid-data" *ngIf="searchPost.isMEMO == 1">
+            <ion-row *ngFor="let result of searchResult;" (click)="gotoDetail(result)" [ngClass]="{'orange-back': result.COMPANY_CODE == 'ICQ' || result.COMPANY_CODE == 'CN', 'blue-back': result.TP_CODE == '1'}">
+                <ion-col class="hc1">
+                    <div class="d-bottom">
+                        <span>{{result.S_CODE | shape }}</span>
+                    </div>
+                </ion-col>
+                <ion-col class="hc2">
+                    <div class="d-bottom">
+                        <span>{{result.CARAT | number:'1.2-2'}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc3">
+                    <div class="d-bottom">
+                        <span *ngIf="result.IS_FANCY ==0">{{result.C_NAME}}</span>
+                        <span *ngIf="result.IS_FANCY ==1">{{result.COLORNAME}}</span>
+                    </div>
+                </ion-col>
+                <ion-col class="hc4">
+                    <div class="d-bottom">
+                        <span>{{result.Q_NAME}}</span>
+                    </div>
+                </ion-col>
+                <ion-col class="hc5">
+                    <div class="d-bottom">
+                        <span>{{result.CUT}}-{{result.POL}}-{{result.SYM}}-{{result.FL_NAME}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc7">
+                    <div overflow-scroll=true class="d-bottom">
+                        <span>{{result.HKD_AMOUNT | number:'4.0-0' }}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc8">
+                    <div overflow-scroll=true class="d-bottom">
+                        <span>{{result.DISPLAY_NO}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc8">
+                    <div overflow-scroll=true class="d-bottom">
+                        <span>{{result.pos}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc1">
+                    <div style="position:relative" overflow-scroll=true class="d-bottom">
+                        <span>{{result.CR_NAME}}</span>
+                    </div>
+                </ion-col>
+
+                <!-- <ion-col class="hc6">
+                    <div style="position:relative" overflow-scroll=true class="d-bottom">
+                        <span>{{result.CRNO}}</span>
+                    </div>
+                </ion-col> -->
+            </ion-row>
+
+            <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content loadingSpinner="bubbles">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </ion-grid>
+
+        <ion-grid class="grid-data" *ngIf="searchPost.isMEMO == 0">
+            <ion-row *ngFor="let result of searchResult;">
+                <ion-col class="hc5" *ngIf="userName == 'admin'" >
+                    <div class="d-bottom">
+                        <span>{{result.SKU}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc1">
+                    <div class="d-bottom">
+                        <span>{{result.S_CODE | shape }}</span>
+                    </div>
+                </ion-col>
+                
+
+                <ion-col class="hc2">
+
+                    <div class="d-bottom">
+                        <span>{{result.CARAT | number:'1.2-2'}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc3">
+
+                    <div class="d-bottom">
+                        <span>{{result.COL}}</span>
+                        <!-- <span *ngIf="result.IS_FANCY == 1">{{result.COLORNAME}}</span> -->
+
+                    </div>
+                </ion-col>
+                <ion-col class="hc4">
+
+                    <div class="d-bottom">
+                        <span>{{result.QUA}}</span>
+                    </div>
+                </ion-col>
+                <ion-col class="hc5">
+                    <div class="d-bottom">
+                        <span>{{result.CUT}}-{{result.POL}}-{{result.SYM}}-{{result.FLO}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc7">
+
+                    <div overflow-scroll=true class="d-bottom">
+                        <span>{{result.HKD | number:'4.0-0' }}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc1" (click)="openLink(result.CERTIFICATE_LINK)">
+
+                    <div style="position:relative" overflow-scroll=true class="d-bottom">
+                        <span>{{result.CERT}}</span>
+                    </div>
+                </ion-col>
+
+                <ion-col class="hc6" (click)="copyTxt(result.CRNO)">
+
+                    <div style="position:relative" overflow-scroll=true class="d-bottom">
+                        <span>{{result.CRNO}}</span>
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-infinite-scroll threshold="100px" (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content loadingSpinner="bubbles">
+                </ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+
+
+        </ion-grid>
+        <img src="../assets/imgs/no_found.png" *ngIf="isData  == 0">
+        <!--<p class="filter-button" style="padding-bottom:0px;margin: 0px;" ion-fixed>
+       <button ion-button full (click)="resetPost()" style="padding-bottom:0px;margin: 0px;height:45px;" >Reset</button> 
+       <button ion-button full (click)="goTosearchresult()" style="padding-bottom:0px;margin: 0px;height:45px;">Search</button>
+       <button ion-button full (click)="saveSearch()" style="padding-bottom:0px;margin: 0px;height:45px;border-right: 1px solid #186495;">Save & Search</button>
+      
+     </p> -->
+    </div>
+<!-- </ion-scroll> -->
+</ion-content>

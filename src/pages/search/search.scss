@@ -1,0 +1,481 @@
+page-search {
+    ion-header {
+        left: 0;
+        top: 0;
+        position: absolute;
+        z-index: 10;
+        display: block;
+        width: 100%;
+        height: 0px !important;
+    }
+    .toolbar-ios ion-title {
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+    .toolbar-ios {
+        padding: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        min-height: 44px;
+        max-height: 44px;
+    }
+    [ion-button] {
+        text-decoration: none;
+        float: right;
+        border-radius: 0px !important;
+        margin: 0px !important;
+        margin-right: 5px !important;
+    }
+
+    letter-spacing: 0.5px;
+    ion-col .shape-box {      
+        border: 1px solid color($colors,border);  
+        padding: 5px;
+        text-align: center;
+        color: color($colors,primary);  
+        text-transform: uppercase;
+        border-radius: 20px;
+      }
+       
+      ion-col div.shape-box  {
+            font-size:11px;
+    }     
+     .shape-box.shape-box1 {      
+       
+        border-radius: 0px !important;
+      box-shadow: 0px 0px 3px 1px #ddd;
+        border: 0;
+        color: color($colors,dark);  
+        padding:0;
+        display: inline-block;
+        width:50px;
+        margin:0 3px;
+     
+      }
+   
+    ion-col .shape-box1.active {      
+         
+        background: color($colors,primary);
+        color:#fff;
+       
+      }
+    
+      ion-col .shape-box.active {      
+         
+          background: color($colors,primary);
+          color:#fff;
+         
+        }
+   .c-box.active{
+     color: color($colors,primary);  
+   }
+   
+    .filter-label {
+            text-align:left;
+            padding: 10px !important;
+            color: color($colors,light);  
+            margin: 0px;
+           
+            line-height: 0em;
+           
+            margin-top: 10px !important;
+        }
+        .filter-label2 {
+            text-align:left;
+           
+            color: color($colors,light);  
+            margin:16px 0px;
+           
+            line-height: 0em;
+          
+        
+        }
+       
+      .shape-box .shape-img {
+       
+            width: 25px;
+            margin: 3px 0;
+        }
+      
+
+        .shape-box span {
+            font-size: 9px;
+            padding-top: 0px; 
+            display: block;
+           
+      }
+    
+      .fitler-input {
+         border: 1px solid color($colors,border);  
+          background-color: fff;
+          width: 100%;       
+          text-align: center;
+          color:color($colors,dark);  
+          border-radius: 5px;
+        
+      }
+      .filter-button {
+          position: fixed;
+          bottom: 0px;
+          width: 100%;
+      }
+      .filter-button .button-full-md ,    .filter-button .button-full-ios{
+          
+          float: left;
+          width: 33.33%;
+          border-right: 1px solid #fff;
+      }
+      .shape-col {
+          width: 18% !important;
+          max-width: 18% !important;     
+       
+          -webkit-flex-basis: none;
+          -ms-flex-preferred-size: none;
+          flex-basis: none;
+          flex: auto;
+          -webkit-box-flex: none;
+          -webkit-flex-grow: unset; 
+          -ms-flex-positive: none;
+      }
+      .shape-col2{
+        width: 19% !important;
+          max-width: 19% !important;
+        padding:0;
+        margin:1px;
+       -webkit-flex-basis: none;
+        -ms-flex-preferred-size: none;
+        flex-basis: none;
+        flex: auto;
+        -webkit-box-flex: none;
+        -webkit-flex-grow: unset; 
+        -ms-flex-positive: none;
+    }
+      .text-input-md,   .text-input-ios {
+          margin: 5px 8px;
+          padding: 0;
+          width: calc(100% - 8px - 8px);
+          text-align: center;
+          font-size: 12px;
+      }
+  
+      .filter-change .button-md ,  .filter-change .button-ios {       
+          color:color($colors,dark);  
+         background: #ffffff;
+      }
+      .filter-change .button-md.active , .filter-change .button-ios.active  {       
+          color:#ffffff;
+         background: color($colors,bg);  
+      }
+      .shape-box {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+      }
+      .toolbar-md-primary .currency-btn , .toolbar-ios-primary .currency-btn
+      {
+          color: color($colors,light)  !important;
+      }
+     
+    
+   
+    .select-md .select-icon .select-icon-inner ,   .select-ios .select-icon .select-icon-inner{
+        left: -20px;
+        top:80%;
+    }
+ .select-text {
+       
+        border: 1px solid color($colors,primary);  
+        padding: 4px 18px 4px 7px;
+        width: 50px;
+        min-width: 100%;
+        font-size: 12px;
+        height: 28px;
+        overflow: hidden;
+         color: color($colors,primary);  
+        border-radius: 5px;
+    }
+    .fancy .select-text {
+       
+      
+        width: 50px;
+       
+    }
+ion-select {
+    max-width: 100%;
+}
+.select-md ,.list-md , .select-ios ,.list-ios{
+    padding: 0;
+}
+.symbol .item-md , .symbol .item-ios {
+    padding-left: 5px !important;
+}
+.symbol .item-md.item-block .item-inner , .symbol .item-ios.item-block .item-inner {
+    padding-right: 5px !important;
+}
+.symbol .item-select .label-md , .symbol .item-select .label-ios{
+   
+    color: color($colors,light);  
+    font-size: 14px;
+}
+ .list-md.symbol ,  .list-ios.symbol{
+    margin:0;
+}
+.shape-box2 img{
+    width:100% !important;
+    
+}
+
+    .scroll-zoom-wrapper{
+    white-space: nowrap;
+    margin-left: 5px;
+    }
+   
+    ion-scroll[scrollX] {
+        white-space: nowrap;
+        height:33px;
+        overflow: hidden;
+         width:100%;
+       /*  box-shadow: 0 0 15px 0px #f1f1f1;*/
+         border-radius: 20px;
+        .scroll-item {
+            display: inline-block;
+            width: 55px;
+            margin: 5px 5px 0px 0px;
+
+        }
+  
+    
+       
+      }
+    /*  .scrollbox ion-row{
+        padding: 5px 5px 0;
+      }*/
+
+    
+      /* Hide ion-content scrollbar */
+      ::-webkit-scrollbar{
+        display:none;
+      }
+      p.cps{
+        padding: 5px 0px !important;
+      }
+
+    ion-grid.grid.shape{
+        padding:5px !important;
+    }
+    .list-md , .list-ios {
+        margin: 0;
+
+    }
+    .item-md, .item-ios {
+      padding-left: 0;
+} 
+.item-md.item-block .item-inner , .item-ios.item-block .item-inner {
+     padding-right: 0;
+    border-bottom: 0;
+}
+ion-select{
+    width:100%;
+}
+.item-block{
+    min-height: 1.4rem;
+}
+.hide{
+    display:none;
+}
+[col-5] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 39.8%;
+    -ms-flex: 0 0  39.8%;
+    flex: 0 0  39.8%;
+    width:  39.8%;
+    max-width: 39.8%;
+}
+.title{
+    width:auto;
+    // float:left;
+}
+.header-icon{
+    float:right;
+}
+.search-header ion-icon {
+    display: grid;
+    text-align: center;
+    
+    color:#fff;
+}
+.toolbar-title-md, .toolbar-title-ios {
+    color: #fff;
+    margin-right: 0;
+    text-align: center;
+    line-height: 39px;
+}
+.search-header ion-icon  span {
+    font-family: "OpenSans" !important;
+    font-size: 10px;
+    font-weight: bold;
+}
+.ion-md-refresh:before ,.ion-md-search:before {
+    font-size: 25px;
+}
+.grid-title{
+    
+    margin-top: 10px;
+  
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    padding:0 !important;
+}
+.grid-title .col
+{
+    background: #545454;
+    color: #fff;
+}
+
+.grid-data{
+font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top:0px;
+    padding:0 !important;
+
+}
+.search-lbl{
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    left: 10px;
+    font-size: 20px;
+    color: #fff;
+    top: 15%;
+}
+
+.grid-title ion-row
+{
+ 
+ float: left;
+   width: 140%;
+}
+.grid-data .col , .grid-title .col{
+    padding:5px 0;
+    text-align: center;
+}
+.col {
+    padding: 0 5px;
+}
+
+ion-grid{
+    padding: 5px 5px !important;
+}
+.data-table
+{
+    overflow:scroll;
+
+}
+  
+  .grid-data ion-row {
+   border-bottom: 1px solid color($colors,b2); 
+   position: relative;
+   float: left;
+   width: 140%;
+  }
+  .grid-data ion-row:nth-child(odd){
+     background: color($colors,b2);
+     padding:0;
+ }
+ ion-scroll[scrolly] {
+   
+    height:100%;
+    overflow: hidden;
+     width:100%;
+     .scroll-zoom-wrapper{
+        white-space: unset;
+     }
+    }
+    img.showimage{
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+    .scroll-item.fancy-color
+    {width: 80px !important;}   
+    ion-fab {
+        position: fixed;
+        z-index: 999;
+        bottom: 10px;
+        right: 10px;
+    }
+     p.totalrecord {
+        margin: 0px;
+        padding: 0px;
+        position: absolute;
+        bottom: 2px;
+        left: 10px;
+        font-size: 11px;
+        color: #fff;
+        top: 33%;
+    }
+    .opt-memo {
+        position: absolute;
+        width: 70px;
+        top: 0px;
+        left: 31%;
+        background: #fff;
+        height: 100%;
+        text-align: center;
+        padding-top: 13px;
+        color: #caae6f;
+    }
+    .opt-out {
+        position: absolute;
+        left: 49%;
+        top: 0px;
+        height: 100%;
+        padding-top: 13px;
+        color: #fff;
+        /* border: 1px solid #fff; */
+        width: 70px;
+        text-align: center;
+        background: #545454;
+    }
+
+    ion-content {
+        left: 0;
+        top: 62px;
+        // padding-top: 15px;
+        position: relative;
+        display: block;
+        width: 100%;
+        height: calc(100% - 62px);
+        contain: layout size style;
+    }
+    .search-block {
+        background: #fff;
+    }
+
+    .fixed-content
+    {
+        // margin-top: 0px !important;
+        // margin-top: env(safe-area-inset-top);
+    }
+
+
+    .search-block {
+        background: #fff;
+        padding-top: 5px;
+    }
+
+    .button-md-danger {
+        color: #fff;
+        background-color: #caae6f;
+        border: 1px solid #fff;
+    }
+    .button-md-danger:hover:not(.disable-hover) {
+        background-color: #666;
+    }
+
+}
+
+
+

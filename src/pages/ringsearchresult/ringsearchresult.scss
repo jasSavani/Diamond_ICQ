@@ -1,0 +1,106 @@
+page-ringsearchresult {
+    .data-table
+    {
+        overflow:scroll;
+        // height: 100%;
+    }
+
+    .grid-title{
+        // margin-top: 10px;
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        padding: 0 !important;
+    }
+    
+    .grid-title .col
+    {
+        background: #545454;
+        color: #fff;
+    }
+
+    .grid-title ion-row
+    {
+        float: left;
+        width: 200%;
+        padding-right:  10px;
+    }
+    
+    .grid-data .col , .grid-title .col {
+        padding:5px 0;
+        text-align: center;
+    }
+
+    .col {
+        padding: 0 5px;
+    }
+
+    ion-grid{
+        padding: 5px 5px !important;
+    }
+
+    .hc1.col{
+        width: 5%;
+        max-width:5%;
+    }
+    .hc2.col{
+        width:4%;
+        max-width:4%;
+    }
+    .hc3.col{
+        width:4%;
+        max-width:4%;
+    }
+    .hc4.col{
+        width:4%;
+        max-width:4%;
+    }
+    .hc5.col{
+        width:12%;
+        max-width:12%;
+    }
+    .hc6.col{
+        width:7%;
+        max-width:7%;
+    }
+    .hc7.col{
+        width:8%;
+        max-width:8%;
+    }
+    .hc8.col{
+        width:9%;
+        max-width:9%;
+    }
+    .hc9.col{
+        width:12%;
+        max-width:12%;
+        flex: none;
+    }
+
+    .grid-data{
+        font-size: 10px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin-top:0px;
+        padding:0 !important;
+    }
+
+    .grid-data ion-row {
+        border-bottom: 1px solid color($colors,b2); 
+        position: relative;
+        float: left;
+        width: 200%;
+        padding-right:  15px;
+    }
+
+    .grid-data ion-row:nth-child(odd) {
+          background: color($colors,b2);
+        //   padding:0;
+    }
+
+    img.showimage {
+        position: absolute;
+        top: 0;
+        opacity: 0;
+    }
+}

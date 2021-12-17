@@ -1,0 +1,237 @@
+<!--
+  Generated template for the DiamondDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Ring Details</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+    <div class="ni-sliders">
+        <div [ngSwitch]="diamond" class="d-segment">
+            <div *ngSwitchCase="'image'" style="height: 420px">
+                <img *ngIf="stonedata.RingImage.length==0" src="./assets/imgs/no-image.png"
+                    class="slide-image ni-slide" />
+                <ion-slides pager paginationType="bullets" *ngIf="stonedata.RingImage.length > 0">
+                    <ion-slide *ngFor="let image of stonedata.RingImage">
+                        <img *ngIf="image" [src]="image" class="slide-image ni-slide" />
+                        <div *ngIf="image">
+                            <button ion-button icon-only class="share-btn" (click)="downloadImage(image)">
+                                <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                            </button>
+                            <button ion-button icon-only class="share-btn" (click)="shareImage(image)"
+                                style="top: 65px">
+                                <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                            </button>
+                        </div>
+                    </ion-slide>
+                    <!-- <ion-slide>
+                        <div *ngIf="imageurl1">
+                            <img *ngIf="imageurl2" [src]="imageurl2" class="slide-image ni-slide" />
+                            <button ion-button icon-only class="share-btn" (click)="downloadImage(imageurl2)">
+                                <ion-icon name="download" style="font-size: 35px;"></ion-icon>
+                            </button>
+                            <button ion-button icon-only class="share-btn" (click)="shareImage(imageurl2)"
+                                style="top: 65px">
+                                <ion-icon name="share" style="font-size: 35px;"></ion-icon>
+                            </button>
+                        </div>
+                    </ion-slide>
+                    <ion-slide>
+                        <img *ngIf="imageurl3" [src]="imageurl3" class="slide-image ni-slide" />
+                        <div *ngIf="imageurl3">
+                            <button ion-button icon-only class="share-btn" (click)="downloadImage(imageurl3)">
+                                <ion-icon name="download" style="font-size: 35px;"></ion-icon>
+                            </button>
+                            <button ion-button icon-only class="share-btn" (click)="shareImage(imageurl3)"
+                                style="top: 65px">
+                                <ion-icon name="share" style="font-size: 35px;"></ion-icon>
+                            </button>
+                        </div>
+                    </ion-slide> -->
+                </ion-slides>
+                <!--  -->
+                
+            </div>
+            <div *ngSwitchCase="'video'">
+                <iframe width="100%" height="420px" frameborder="0"
+                    [src]="Doms.bypassSecurityTrustResourceUrl(videourl)"></iframe>
+                <div *ngIf="videourl">
+                    <button ion-button icon-only class="share-btn" (click)="downloadVideo(videourl)">
+                        <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                    </button>
+                    <button ion-button icon-only class="share-btn" (click)="shareImage(videourl)" style="top: 65px">
+                        <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div *ngSwitchCase="'certificate'" style="height: 420px">
+                <img *ngIf="certPath" [src]="stonedata.certificate_link" class="slide-image ni-slide" />
+                <div>
+                    <button ion-button icon-only *ngIf="stonedata.certificate_link" class="share-btn" (click)="downloadImage(stonedata.certificate_link)">
+                        <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                    </button>
+                    <button ion-button icon-only *ngIf="certPath" class="share-btn" (click)="shareImage(certPath)" style="top: 65px">
+                        <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                    </button>
+                </div>
+                <img *ngIf="!certPath" src="./assets/imgs/no-image.png" class="slide-image ni-slide" />
+            </div>
+
+            <!-- <div *ngSwitchCase="'ha'" style="height: 420px">
+              <img *ngIf="stonedata?.ha_path" [src]="stonedata.ha_path" class="slide-image ni-slide" />
+              <div *ngIf="stonedata?.ha_path" (click)="shareUrl(stonedata.ha_path)">
+                  <button ion-button icon-only class="share-btn">
+                      <ion-icon name="share" style="font-size: 35px;"></ion-icon>
+                  </button>
+              </div>
+              <div *ngIf="!stonedata.ha_path">
+                  <img src="./assets/imgs/no-image.png" class="slide-image ni-slide" />
+              </div>
+
+          </div> -->
+        </div>
+        <ion-segment [(ngModel)]="diamond">
+            
+            <ion-segment-button value="certificate">
+                Certificate
+            </ion-segment-button>
+            <ion-segment-button value="video" *ngIf="stonedata?.video !== null">
+                Video
+            </ion-segment-button>
+            <!-- <ion-segment-button value="ha">
+              H&A
+          </ion-segment-button> -->
+            <!-- (click)="openCertPDF(stonedata.certificate_link)" -->
+            <ion-segment-button value="image">
+                Image
+            </ion-segment-button>
+        </ion-segment>
+    </div>
+
+    <ion-list class="information">
+        <!-- <ion-item-divider>
+            <span class="item-left"> Ring No</span>
+            <span class="item-right">{{stonedata.RING_NO}}</span>
+        </ion-item-divider> -->
+
+        <ion-item-divider *ngIf="userName == 'admin'">
+            <span class="item-left"> Supplier Stock ID</span>
+            <span class="item-right">{{stonedata.SKU_NO}}</span>
+        </ion-item-divider>
+
+
+        <ion-item-divider>
+            <span class="item-left"> Shape</span>
+            <span class="item-right">{{stonedata.S_NAME}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Carat</span>
+            <span class="item-right">{{stonedata.CARAT}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Color</span>
+            <span class="item-right" *ngIf="stonedata.IS_FANCY">{{stonedata.COLORNAME}}</span>
+            <span class="item-right" *ngIf="!stonedata.IS_FANCY">{{stonedata.C_NAME}}</span>
+        </ion-item-divider>
+
+
+        <ion-item-divider>
+            <span class="item-left"> Clarity</span>
+            <span class="item-right">{{stonedata.Q_NAME}}</span>
+        </ion-item-divider>
+
+        
+        <ion-item-divider>
+            <span class="item-left"> Cut</span>
+            <span class="item-right">{{stonedata.CUT}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Polish</span>
+            <span class="item-right">{{stonedata.POL}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Symm</span>
+            <span class="item-right">{{stonedata.SYM}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Florescense</span>
+            <span class="item-right">{{stonedata.FL_NAME}}</span>
+        </ion-item-divider>
+    </ion-list>
+
+    <ion-list>
+        <ion-item-divider>
+            <span class="item-left d-header"> Pricing Details</span>
+        </ion-item-divider>
+
+        <ion-item-divider *ngIf="userName == 'admin'">
+            <span class="item-left"> Stone Price</span>
+            <span class="item-right">{{stonedata.STONE_AMOUNT}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Ring Price</span>
+            <span class="item-right">{{stonedata.RING_PRICE}}</span>
+        </ion-item-divider>
+    </ion-list>
+
+    <ion-list>
+        <ion-item-divider>
+            <span class="item-left d-header">Remarks</span>
+        </ion-item-divider>
+
+        <div style="padding:5px 0 15px 0; background: #ffffff; ">
+            <ion-input style="width:74% !important; float: left;" [(ngModel)]="stonedata.remarks" type="text" placeholder="Enter Remarks" class="fitler-input">
+            </ion-input>
+            <div style="margin-top: 10px;">
+                <button ion-button full  (click)="saveRemark()"
+                    style="padding-bottom:0px;margin: 0px !important;height:45px; width: 25%;">Save</button>
+            </div>
+        </div>
+    </ion-list>
+
+    <ion-list>
+        <ion-item-divider>
+            <span class="item-left d-header"> Additional Information</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> LR No.</span>
+            <span class="item-right">{{stonedata.LR_NO}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Design No.</span>
+            <span class="item-right">{{stonedata.design_no}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider *ngIf="userName == 'admin'">
+            <span class="item-left"> Company</span>
+            <span class="item-right">{{stonedata.COMPANY_CODE}}</span>
+        </ion-item-divider>
+        
+        <ion-item-divider>
+            <span class="item-left"> Lab</span>
+            <span class="item-right">{{stonedata.CR_NAME}}</span>
+        </ion-item-divider>
+
+        <ion-item-divider>
+            <span class="item-left"> Certificate</span>
+            <span class="item-right">{{stonedata.CRNO}}</span>
+        </ion-item-divider>
+       
+    </ion-list> 
+</ion-content>

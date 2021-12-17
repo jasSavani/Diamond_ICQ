@@ -1,0 +1,11 @@
+keytool -genkey -v -keystore icq.keystore -alias icq -keyalg RSA -keysize 2048 -validity 10000
+
+keytool -genkey -v -keystore F:/ionic/App/ICQ/Detail/icq.keystore -alias icq -keyalg RSA -keysize 2048 -validity 10000
+
+
+sh F:/ionic/App/ICQ/Detail/generate_apk.sh
+
+3ni@219
+jeet@9790
+
+

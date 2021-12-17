@@ -1,0 +1,36 @@
+page-customer {
+    
+    .main-container {
+        align-items: center;
+        justify-content: center;
+        .sub-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+
+            .container {
+                text-align: center;
+                flex: 1;
+
+                .lbl-txt {
+                    font-size: 18px;
+                    color: #baaf84;
+                    font-weight: 500;
+                }
+
+                .img-container {
+                    padding: 10px;
+                    margin: 10px;
+                    border: 1px solid #baaf84;
+                }
+            }
+            .list-container {
+                text-align: center;
+                flex: 1;
+
+            }
+        }
+    }
+}

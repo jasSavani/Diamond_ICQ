@@ -1,0 +1,153 @@
+page-home {
+   .fa-eye:before{
+   margin-right: -2px;
+    position: absolute;
+    border: 0;
+    right: 35px;
+    color: #ba8b51;
+    top: 104px;
+    font-size: 15px;
+   }
+    .img-bg{
+     background:url('../assets/imgs/about-bg2.jpg') ;
+        background-size:cover;
+        height:100%;
+        
+    }
+    .logo {
+        width: 80%;
+        height: 70px;
+    }
+   .item-md ,  .item-ios{
+        padding: 0 3px;
+        background:transparent;
+    }
+    .list-md .item-input:last-child , .list-ios .item-input:last-child {
+        border-bottom:0;
+    }
+  
+    .button-md ,   .button-ios {
+        border-radius: 20px;
+        height: 4rem;
+       
+    }
+    //  .text-input-md ,  .text-input-ios{
+    //     margin-left: 50px !important;
+    //     font-size: 14px;
+    //     margin: 0;
+    // }
+    .list-md ,  .list-ios{
+         margin:  0;
+    }
+    .scroll-content{
+        padding: 0;
+    }
+   .list-md .item-block .item-inner ,   .list-ios .item-block .item-inner{
+       background:#fff;
+	border-bottom: 0;
+	-webkit-box-shadow:0px 1px 13px -4px rgba(18, 18, 18, 0.8);
+	box-shadow: 0px 1px 13px -4px rgba(18, 18, 18, 0.8);
+	border-radius: 25px;
+    margin: 10px auto;
+    
+}
+.item-md.item-input.item-input-has-focus .item-inner , .item-ios.item-input.item-input-has-focus .item-inner {
+    border-bottom:0; 
+    box-shadow: 0px 1px 13px -4px rgba(18, 18, 18, 0.8) !important;
+}
+.list-md .item-input.item-input-has-focus:last-child , .list-ios .item-input.item-input-has-focus:last-child {
+    border-bottom:0 solid #fff;
+    box-shadow: unset;
+}
+    
+.item.item-block.item-md.item-checkbox , .item.item-block.item-ios.item-checkbox {   
+	padding: 0 16px;  
+}     
+.item.item-md .checkbox-md , .item.item-ios.checkbox-ios{ 
+	
+	margin: 10px 10px 13px 0px;   
+} 
+.checkbox-md + .item-inner ion-label , .checkbox-ios + .item-inner ion-label {
+
+	font-size: 14px;
+
+    color:color($colors,light);
+    font-weight: 200;
+	
+}
+p{
+    font-weight:200;
+}
+.item-md.item-block .item-inner , .item-ios.item-block .item-inner {
+	border-bottom: 0px;
+}
+p.link {
+	color:color($colors,primary);
+	text-align: right;
+	padding: 0 25px;
+	margin: 0; 
+}
+.signin-btn{
+	padding: 3px 16px;
+}
+.c-account{
+    color:color($colors,primary);
+    text-align: left;
+    float:right;
+    width:50%;
+    padding-left:5px;
+   
+}
+.p-label{
+    float:left;
+    width:50%;
+    color:color($colors,light);
+    padding-right: 5px;
+    text-align: right;
+}
+.c-acc{
+    padding-top: 60px !important;
+}
+.list.list-md , .list.list-ios{
+    padding-left: 0px !important;
+    padding-bottom: 0px !important;
+    position: relative;
+    
+}
+
+.envelope::before {
+	content: '\f0e0';
+	font-family: FontAwesome;
+    color:color($colors,primary);
+	position: relative;
+	left:35px;
+}
+ .lock::before {
+	content: '\f023';
+	font-family: FontAwesome;
+    color:color($colors,primary);
+	position: relative;
+	left: 36px;
+	font-size: 20px;
+}
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner ,
+.item-ios.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner, .item-ios.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner
+{
+     border-bottom-color:transparent;
+    
+    box-shadow: 0px 1px 13px -4px rgba(18, 18, 18, 0.8);
+}
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner ,
+.list-ios .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner, .list-ios .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child .item-inner 
+{
+    -webkit-box-shadow: 0px 1px 13px -4px rgba(18, 18, 18, 0.8);
+    box-shadow: 0px 1px 13px -4px rgba(18, 18, 18, 0.8);
+}
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-ios .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child, .list-ios .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child
+ {
+     border-bottom-color: transparent;
+    -webkit-box-shadow: unset;
+     box-shadow:unset;
+}
+}  

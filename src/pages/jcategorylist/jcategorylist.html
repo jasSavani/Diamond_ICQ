@@ -1,0 +1,71 @@
+<!--
+  Generated template for the JcategorylistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<!-- <ion-header>
+
+    <ion-navbar>
+      <ion-title>Category List</ion-title>
+    </ion-navbar>
+  
+  </ion-header> -->
+
+<ion-header>
+  <ion-navbar>
+    <!-- <ion-title>Categories</ion-title> -->
+    <div style="float: right;">
+      <ion-input class="search-input" [(ngModel)]="productCode" placeholder="Search"></ion-input>
+      <button class="btn-search" ion-button (click)="goToJDetail()" color="light">
+        <ion-icon class="search" name="search"></ion-icon>
+      </button>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider class="lbl-shape">
+    <ion-list>
+      <ion-item *ngFor="let result of categoryData;" (click)="goToCateDetail(result.ST_NAME,result.ST_CODE)">
+        <ion-avatar item-start>
+          <img src="{{result.Image}}">
+        </ion-avatar>
+        <h2>{{result.ST_NAME}}</h2>
+        <p>Number of rings: {{result.Total}}</p>
+        <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-item-divider>
+
+  <ion-list class="main-list">
+    <ion-item *ngFor="let shape of shapeArray;" (click)="gotoCateDetail(shape)">
+      <ion-avatar item-start>
+        <img src="{{shape.image}}" class="img-shape">
+      </ion-avatar>
+      <h2>{{shape.name}}</h2>
+      <!-- <p>Number of rings: {{result.Total}}</p> -->
+      <ion-icon item-end name="ios-arrow-forward"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <!-- <ion-grid class="filter-block shape" >
+      <ion-row class="row-main1">
+          <ion-col class="shape-col ">
+              <p class="filter-label2">
+                <span>Shape</span>
+              </p>
+            </ion-col>
+        <ion-col >        
+          <ion-scroll scrollX="true" direction="x" style="height:60px;border-radius: 0">            
+          <div *ngFor="let shape of shapeArray" class="shape-box shape-box1 " [ngClass]="{'active': shape.active}"   (click)="gotoCateDetail(shape)" > 
+            <img [src]="shape.image" class="shape-img" />
+           
+            <span> {{shape.name}} </span>
+          </div>
+        </ion-scroll>
+           </ion-col>
+      </ion-row>
+    </ion-grid> -->
+</ion-content>

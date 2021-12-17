@@ -1,0 +1,303 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Customer Inquiry Save</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="grid-basic-page">
+    <div style="display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 5px;">
+        <div *ngFor="let img of socialMedia; let i = index" class="social-imgs" (click)="selectSocial(i)" [ngClass]="{'active': img.active}">
+            <img class="img-ring-header" [src]="img.image">
+        </div>
+    </div>
+    <!-- Shape -->
+    <div class="search-block">
+        <ion-grid>
+            <ion-row style="padding:5px 0;">
+                <ion-col style="width:33% !important">
+                    <div class="shape-box " [ngClass]="{'active': searchPost.a_type == 1}" (click)="changeType(1)">Buy Back</div>
+                </ion-col>
+                <ion-col style="width:33% !important">
+                    <div class="shape-box " [ngClass]="{'active': searchPost.a_type == 2}" (click)="changeType(2)">Inquiry</div>
+                </ion-col>
+                <ion-col style="width:33% !important">
+                    <div class="shape-box " [ngClass]="{'active': searchPost.a_type == 3}" (click)="changeType(3)">Price Update</div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <!-- Shape -->
+        <ion-grid class="filter-block shape">
+            <ion-row>
+                <ion-col col-3 class="shape-col2" *ngFor="let shape of shapeArray;let i = index" (click)="selectShape(i)">
+                    <div class="shape-box shape-box1 " style="padding: 5px;" [ngClass]="{'active': shape.active}" >
+                        <img [src]="shape.image" class="shape-img" />
+                        <span> {{shape.name}} </span>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <!--Size  -->
+        <ion-grid class="filter-block carat">
+            <ion-row>
+                <ion-col class="shape-col">
+                    <p class="filter-label2">
+                        <span>Carat</span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-input [(ngModel)]="searchPost.a_from_carat" type="number" placeholder="From" class="fitler-input">
+                    </ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-input [(ngModel)]="searchPost.a_to_carat" type="number" placeholder="To" class="fitler-input">
+                    </ion-input>
+                </ion-col>
+                <ion-col col-4>
+                    <ion-input [(ngModel)]="searchPost.a_size_code" type="number" placeholder="Size Code" class="fitler-input">
+                    </ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <!--color  -->
+        <ion-grid class="filter-block ">
+            <ion-row>
+                <ion-col col-3 class="shape-col">
+                    <p class="filter-label2" style="line-height: 20px;margin: 6px 0;">
+                        <span class="c-box " style="padding-top: 7px;">Color</span>
+                    </p>
+                </ion-col>
+                <!--white color  -->
+                <ion-col>
+                    <ion-scroll scrollX="true" direction="x">
+                        <div *ngFor="let color of colorArray;" class="shape-box scroll-item"
+                            [ngClass]="{'active': color.active}" (click)="colorClass(color)">
+                            {{color.name}} </div>
+                    </ion-scroll>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <!--  clarity-->
+        <ion-grid class="filter-block scrollbox ">
+            <ion-row>
+                <ion-col col-3 class="shape-col">
+                    <p class="filter-label2">
+                        <span>Clarity</span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-scroll scrollX="true" direction="x">
+                        <div *ngFor="let color of clarityArray;" class="shape-box scroll-item"
+                            [ngClass]="{'active': color.active}" (click)="colorClass(color)"> {{color.name}} </div>
+                    </ion-scroll>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid class="filter-block scrollbox ">
+            <ion-row>
+                <ion-col col-3 class="shape-col">
+                    <p class="filter-label2">
+                        <span>Flurc</span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-scroll scrollX="true" direction="x">
+                        <div *ngFor="let color of flurArray;" class="shape-box scroll-item"
+                            style="width: auto; min-width: 55px;" [ngClass]="{'active': color.active}"
+                            (click)="colorClass(color)"> {{color.name}} </div>
+                    </ion-scroll>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid>
+            <ion-row style="padding:5px 0;">
+                <ion-col style="width:50% !important">
+                    <div class="shape-box " [ngClass]="{'active': isFancyColor}" (click)="isFancy()">Fancy</div>
+                </ion-col>
+                <!-- <ion-col style="width:33% !important"> -->
+                    <!-- <div class="shape-box " [ngClass]="{'active': searchPost.ex}" (click)="exFilterSet()">3EX</div> -->
+                <!-- </ion-col> -->
+                <ion-col col-6>
+                    <ion-list>
+                        <ion-item>
+                            <ion-label style="display:none">Advance</ion-label>
+                            <ion-select [(ngModel)]="searchPost.a_advance" multiple="true" placeholder="Advance">
+                                <ion-option *ngFor="let advance of advancedArray;" class="shape-box" value="{{advance.name}}">
+                                    {{advance.name}}
+                                </ion-option>
+                            </ion-select>
+                        </ion-item>
+                    </ion-list>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-row style="padding:5px 0;" *ngIf="isFancyColor">
+            <ion-col >
+                <ion-input [(ngModel)]="searchPost.a_fancy_color" type="text" placeholder="Enter Fancy Color"
+                    class="fitler-input">
+                </ion-input>
+            </ion-col>
+        </ion-row>
+      
+        <ion-row style="padding:5px 0;">
+            <ion-col style="width:50% !important;float: left;flex: auto;">
+                <ion-input [(ngModel)]="searchPost.a_from_price" type="text" placeholder="Enter Price From"
+                    class="fitler-input">
+                </ion-input>
+            </ion-col>
+            <ion-col style="width:50% !important;float: left;flex: auto;">
+                <ion-input [(ngModel)]="searchPost.a_to_price" type="text" placeholder="Enter Price To"
+                    class="fitler-input">
+                </ion-input>
+            </ion-col>
+        </ion-row>
+        <ion-grid class="filter-block scrollbox ">
+            <ion-row>
+                <ion-col col-12>
+                    <p class="filter-label2">
+                        <span>Certi No/ICQ No</span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-input [(ngModel)]="searchPost.a_cert_no" type="text"
+                        placeholder="Enter Certification No/ICQ No" class="fitler-input"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <!-- Certificate -->
+        <ion-grid class="filter-block shape">
+            <ion-row style="padding-top: 10px;">
+                <ion-scroll scrollX="true" direction="x" style="height: 60px;">
+                    <ion-col *ngFor="let shape of  certificateArray;let i = index" (click)="selectCerty(i)" style="text-align: center;">
+                        <div class="shape-box shape-box1 shape-box2 " style="width: 70px;"
+                            [ngClass]="{'active': shape.active}">
+                            <img *ngIf="shape.image" [src]="shape.image" class="shape-img" /> 
+                            <div *ngIf="!shape.image" style="height: 50px;
+                            white-space: normal;
+                            font-weight: bold;
+                            padding-top: 15px;">{{ shape.name }}</div>
+                        </div>
+                    </ion-col>
+                </ion-scroll>
+            </ion-row>
+        </ion-grid>
+
+        <!-- <ion-grid class="filter-block scrollbox ">
+            <ion-row>
+                <ion-col col-12>
+                    <p class="filter-label2">
+                        <span>Customer Name</span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-input [(ngModel)]="searchPost.a_cust_name" type="text"
+                        placeholder="Enter Name" class="fitler-input"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid> -->
+
+
+        <ion-grid class="filter-block scrollbox ">
+            <ion-row>
+                <!-- <ion-col col-12>
+                    <p class="filter-label2">
+                        <span>Mobile Number</span>
+                    </p>
+                </ion-col> -->
+                <ion-col>
+                    <p class="filter-label2">
+                        <span>Customer Name</span>
+                    </p>
+                    <ion-input [(ngModel)]="searchPost.a_cust_name" type="text"
+                        placeholder="Enter Name" class="fitler-input"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <p class="filter-label2">
+                        <span>Mobile Number</span>
+                    </p>
+                    <ion-input [(ngModel)]="searchPost.a_mobile_no" type="text"
+                        placeholder="Enter Number" class="fitler-input"></ion-input>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+            <ion-row style="padding:5px 0;">
+                <ion-col style="width:50% !important">
+                    <div class="shape-box" [ngClass]="{'active': searchPost.p_how_cert == 'Clear Cert'}" (click)="howCert('Clear Cert')">Clear Cert</div>
+                </ion-col>
+                <ion-col style="width:50% !important">
+                    <div class="shape-box" [ngClass]="{'active': searchPost.p_how_cert == 'No Speciafic'}" (click)="howCert('No Speciafic')">No Speciafic</div>
+                </ion-col>
+                <ion-col>
+                    <!-- <p class="filter-label2">
+                        <span>Select Status</span>
+                    </p> -->
+                    <ion-item>
+                        <ion-label style="display:none">Status</ion-label>
+                        <ion-select [(ngModel)]="searchPost.a_status" placeholder="Status">
+                            <ion-option *ngFor="let status of statusArray;" class="shape-box" value="{{status.STATUS_CODE}}">
+                                {{status.STATUS_NAME}}
+                            </ion-option>
+                        </ion-select>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        
+        <ion-grid class="filter-block scrollbox ">
+            <ion-row>
+                <ion-col col-12>
+                    <p class="filter-label2">
+                        <span>Additional Comment</span>
+                    </p>
+                </ion-col>
+                <ion-col>
+                    <ion-textarea [(ngModel)]="searchPost.a_comment" class="fitler-input text-area-input" placeholder="Enter Comment">
+                    </ion-textarea>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <ion-row *ngIf="imageURI">
+        <ion-col style="width: 100%;
+        margin: auto;
+        text-align: center;
+        padding-top: 15px;">
+            <div>
+                <img [src]='imageURI' style="height: 150px;" (click)="showImage(imageURI)" />
+                <img src="./assets/imgs/close.png" (click)="closeImage()" style="position: absolute;
+                top: 5px;
+                right: 32%;" />
+            </div>
+           
+        </ion-col>
+    </ion-row>
+
+    <ion-row style="padding:15px 10px 30px 10px;">
+        <!-- <ion-col col-3></ion-col> -->
+        <ion-col col-6>
+            <div class="shape-box" (click)="getImage()" style="background: #baaf84;
+            color:#fff;" >Upload Image</div>
+            <!-- (click)="getImage()" -->
+        </ion-col>
+        <ion-col col-6>
+            <div class="shape-box" style="background: #baaf84;
+                color:#ffffff;" (click)="goTosearchresult()" *ngIf="!editId">Save Inquiry</div>
+
+            <div class="shape-box" style="background: #baaf84;
+                color:#ffffff;" (click)="goTosearchresult()" *ngIf="editId">Update Inquiry</div>
+        </ion-col>
+        <ion-col col-3></ion-col>
+        <ion-col col-6 style="margin-top: 15px;">
+            <div class="shape-box" style="background: #baaf84;
+                color:#ffffff;" (click)="resetPost()" *ngIf="!editId">Reset Inquiry</div>
+        </ion-col>
+    </ion-row>
+</ion-content>

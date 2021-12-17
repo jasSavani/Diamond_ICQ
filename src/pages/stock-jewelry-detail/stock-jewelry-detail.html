@@ -1,0 +1,185 @@
+<!--
+  Generated template for the StockJewelryDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>
+            <img class="img-ring-header" src="./assets/imgs/HalfLogo.png">
+        </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+    <div class="main-container" style="padding: 8px;">
+        <div class="top-container">
+            <div class="top-header">
+                <div class="detail-title"> {{detailData?.NAME}} </div>
+                <div class="icon-container" *ngIf="detailData?.RingImage.length > 0 || detailData?.video">
+                    <button ion-button icon-only style="margin-right: 10px;" class="share-btn"
+                        (click)="downloadImage()">
+                        <ion-icon name="md-download" style="font-size: 35px;"></ion-icon>
+                    </button>
+                    <button ion-button icon-only class="share-btn" (click)="shareImage()">
+                        <ion-icon name="md-share" style="font-size: 35px;"></ion-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="slider-container" *ngIf="detailData?.RingImage.length > 0 || detailData?.video">
+                <div class="left-slider-container">
+                    <ion-slides class="slider-contain" pager loop paginationType="bullets">
+                        <ion-slide *ngFor="let url of detailData?.RingImage; let i = index">
+                            <img [src]="url" style="width:100%;" />
+                            <!-- <div [style.backgroundImage]="'url(' + url + ')'" style="    height: 250px;
+                            width: 100%;
+                            background-size: cover;
+                            background-position: center;"></div> -->
+                        </ion-slide>
+                        <ion-slide *ngIf="detailData?.video">
+                            <iframe width="100%" height="330px" frameborder="0"
+                                [src]="Doms.bypassSecurityTrustResourceUrl(detailData.video)"></iframe>
+                        </ion-slide>
+                    </ion-slides>
+                </div>
+                <div class="right-slider-container" style="height: 330px;">
+                    <img [src]="a" (click)="onChangeSlider(i+1)"
+                        *ngFor="let a of detailData?.RingImage; let i = index" />
+
+                    <!-- <iframe width="100%" height="420px" frameborder="0" *ngIf="detailData.video"
+                                [src]="Doms.bypassSecurityTrustResourceUrl(detailData.video)" (click)="onChangeSlider(detailData.RingImage.length + 1)"></iframe> -->
+                    <div (click)="onChangeSlider(detailData.RingImage.length + 1)">
+                        <ion-icon name="play" *ngIf="detailData.video" style="font-size: 30px;
+                        border: 1px solid;
+                        width: 80%;
+                        min-height: 30%;
+                        padding: 10px 0;"></ion-icon>
+                    </div>
+                    <!-- <img src="./assets/imgs/ICQJewellery.jpeg" *ngIf="detailData.video" (click)="onChangeSlider(detailData.RingImage.length + 1)" -->
+                    <!-- /> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-container" *ngIf="detailData">
+            <div class="bottom-top-container">
+                <div class="price-txt">
+                    $ {{detailData.RING_PRICE}}
+                </div>
+                <div class="middle-price-txt" *ngIf="detailData.DISPLAY_NO">
+                    {{detailData.DISPLAY_NO}}
+                </div>
+                <div class="other-price-txt" *ngIf="userName == 'admin'">
+                    <div>Stone Price : $ {{detailData.STONE_AMOUNT}}</div>
+                    <div>Setting Price : $ {{detailData.SETTING_PRICE}}</div>
+                    <div>Company : {{detailData.COMPANY_CODE}}</div>
+
+                </div>
+            </div>
+            <div class="bottom-detail-container">
+                <div class="detail-title">
+                    Product Details
+                </div>
+                <div class="detail-data">
+                    <div class="detail-data-1">
+                        <div>{{detailData.S_CODE | fullShape}}</div>
+                        <div>{{detailData.CARAT}}</div>
+                        <div *ngIf="detailData.C_NAME">{{detailData.C_NAME}}</div>
+                        <div *ngIf="detailData.F_NAME">{{detailData.F_NAME}}</div>
+                        <div>{{detailData.Q_NAME}}</div>
+                        <div>{{detailData.CUT}}</div>
+                        <div>{{detailData.POL}}</div>
+                        <div>{{detailData.SYM}}</div>
+                        <div>{{detailData.FL_NAME}}</div>
+                    </div>
+
+                    <div class="detail-data-2">
+                        <div>{{detailData.CR_NAME}} : <span class="edit-fields" *ngIf="detailData?.CRNO !== 'NON'"
+                                (click)="openCert(detailData.certificate_link)">{{detailData.CRNO}}</span></div>
+                        <div>SKU ID : {{detailData.SKU_NO}}</div>
+                    </div>
+                </div>
+
+                <div class="detail-title" style="width: 130px; display: block; margin-top: 15px;">
+                </div>
+                <div class="detail-data-block-2 detail-block-top">
+                    <div class="detail-left">
+                        <ion-row>
+                            <ion-col class="col-40">Design No.</ion-col>
+                            <ion-col>: {{detailData.design_no}}</ion-col>
+                        </ion-row>
+                    </div>
+                    <div class="detail-right">
+                        <ion-row>
+                            <ion-col col-5>LR No.</ion-col>
+                            <ion-col>: {{detailData.LR_NO}}</ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+                <div class="detail-data-block-2">
+                    <div class="detail-left">
+                        <ion-row>
+                            <ion-col class="col-40">Metal</ion-col>
+                            <ion-col>: {{detailData.OTHER_METAL}} </ion-col>
+                        </ion-row>
+                    </div>
+                    <div class="detail-right">
+                        <ion-row>
+                            <ion-col col-5>D Pcs.</ion-col>
+                            <ion-col>: {{detailData.SD_PCS}}</ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+                <div class="detail-data-block-2">
+                    <div class="detail-left">
+                        <ion-row>
+                            <ion-col class="col-40">Metal Wt.</ion-col>
+                            <ion-col>: {{detailData.METAL_WEIGHT}} </ion-col>
+                        </ion-row>
+                    </div>
+                    <div class="detail-right">
+                        <ion-row>
+                            <ion-col col-5>D Wt.</ion-col>
+                            <ion-col>: {{detailData.SD_WEIGHT}}</ion-col>
+                        </ion-row>
+                    </div>
+                </div>
+                <div class="detail-data-block-2">
+                    <div class="detail-left">
+                        <ion-row>
+                            <ion-col class="col-40">Size</ion-col>
+                            <ion-col>: {{detailData.SIZE}}</ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col class="col-40">Memo Remark</ion-col>
+                            <ion-col>: {{detailData.MEMO_REMARK}}</ion-col>
+                        </ion-row>
+                    </div>
+                    <div class="detail-right">
+                        <ion-row>
+                            <ion-col col-5>Ad No.</ion-col>
+                            <ion-col>: {{detailData.AD_NO}}</ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col>
+                                <ion-input type="text" placeholder="Enter Remarks" [(ngModel)]="detailData.remarks"
+                                    class="fitler-input">
+                                </ion-input>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <button ion-button full (click)="saveRemark()"
+                                style="padding-bottom:0px;margin: 0px !important;height:30px; width: 50%;">Save</button>
+                        </ion-row>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</ion-content>

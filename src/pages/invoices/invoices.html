@@ -1,0 +1,202 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title class="txt-title">
+            <!-- <img class="img-ring-header" src="./assets/imgs/HalfLogo.png"> -->
+            <div>Invoices Search</div>
+        </ion-title>
+    </ion-navbar>
+    <div class="main-container">
+        <div class="top-container" padding>
+            <div class="single-row">
+                <ion-row class="left-container">
+                    <ion-col style="width:50% !important;float: left;flex: auto;">
+                        <ion-input type="text" [(ngModel)]="formData.invoice_no" placeholder="Invoice No."
+                            class="fitler-input">
+                        </ion-input>
+                    </ion-col>
+                    <ion-col class="select-contain">
+                        <!-- <ion-input type="text" placeholder="Category" class="fitler-input">
+                        </ion-input> -->
+                        <ion-label style="display:none">Category</ion-label>
+                        <ion-select [(ngModel)]="formData.sales_cat_code" placeholder="Category">
+                            <ion-option *ngFor="let cat of calegoryList;" class="shape-box" value="{{cat.CAT_CODE}}">
+                                {{cat.CAT_NAME}}
+                            </ion-option>
+                        </ion-select>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="left-container">
+                    <div class="text-title">Customer Name</div>
+                    <ion-col style="width:50% !important;float: left;flex: auto;">
+                        <ion-input type="text" [(ngModel)]="formData.customer_name" class="fitler-input">
+                        </ion-input>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="left-container">
+                    <div class="text-title">Mobile Number</div>
+                    <ion-col style="width:50% !important;float: left;flex: auto;">
+                        <ion-input type="text" [(ngModel)]="formData.mobile_no" class="fitler-input">
+                        </ion-input>
+                    </ion-col>
+                </ion-row>
+               <ion-row class="left-container">
+                    <div class="text-title" style="padding-top: 8px;">Date</div>
+                    <ion-col style="width:40% !important;float: left;flex: auto;">
+                        <ion-datetime class="date-picker-contain" displayFormat="DD-MM-YYYY" placeholder="From"
+                            pickerFormat="DD-MM-YYYY" [(ngModel)]="formData.from_date"></ion-datetime>       
+                    </ion-col>
+                    <ion-col style="width:40% !important;float: left;flex: auto;">
+                        <!-- <div style="float: left; padding: 8px 15px 0px 15px">To</div> -->
+                        <ion-datetime class="date-picker-contain" displayFormat="DD-MM-YYYY" placeholder="To"
+                            pickerFormat="DD-MM-YYYY" [(ngModel)]="formData.to_date"></ion-datetime>
+                    </ion-col>
+                </ion-row>
+                <ion-row class="left-container">
+                    <ion-col style="width:50% !important;float: left;flex: auto;">
+                        <ion-input type="text" [(ngModel)]="formData.certificate" placeholder="Cert. No."
+                            class="fitler-input">
+                        </ion-input>
+                    </ion-col>
+                    <ion-col class="select-contain" style="width:50% !important;float: left;flex: auto;">
+                        <!-- <ion-item> -->
+                            <ion-label style="display:none">Lab</ion-label>
+                            <ion-select [(ngModel)]="formData.lab" placeholder="Lab">
+                                <ion-option *ngFor="let certi of certificateArray;" class="shape-box" value="{{certi.value}}">
+                                    {{certi.name}}
+                                </ion-option>
+                            </ion-select>
+                        <!-- </ion-item> -->
+                        <!-- <ion-input type="text" [(ngModel)]="formData.lab" placeholder="Lab" class="fitler-input">
+                        </ion-input> -->
+                    </ion-col>
+                </ion-row>
+                <ion-row class="left-container">
+                    <ion-col style="width:50% !important;float: left;flex: auto;">
+                        <ion-input type="text" [(ngModel)]="formData.serve_by" placeholder="Serve by"
+                            class="fitler-input">
+                        </ion-input>
+                    </ion-col>
+                    <ion-col style="width:50% !important;float: left;flex: auto;">
+                        <ion-input type="text" [(ngModel)]="formData.appoint_by" placeholder="Appoint by"
+                            class="fitler-input">
+                        </ion-input>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row style="margin-top: 20px;">
+                    <div class="btn-contain">
+                        <button ion-button (click)="showResult()" class="btn-data search-btn"
+                            style="padding-bottom:0px;margin: 0px !important; background:#867c59;">Show</button>
+                    </div>
+                    <div class="btn-contain">
+                        <button ion-button (click)="resetData()" class="btn-data reset-btn">Clear</button>
+                    </div>
+                </ion-row>
+            </div>
+        </div>
+    </div>
+</ion-header>
+
+
+<ion-content>
+    <div class="main-container">
+        
+        <div class="bottom-container"  *ngIf="searchResultData.length > 0">
+            <div class="title-container">
+                <div class="fields field-1" (click)="sorting(invoiceOrder, 'INVOICE_NO')">
+                    Invoice
+                    <img src="./assets/imgs/arrow-up.png" *ngIf="invoiceOrder == 'ASC'" style="margin-left: 10px; width: 12px;" />
+                    <img src="./assets/imgs/arrow-down.png" *ngIf="invoiceOrder == 'DESC'" style="margin-left: 10px; width: 12px;" />
+                </div>
+                <div class="fields field-2" (click)="sortingDate(dateOrder, 'SALE_DATE')">
+                    Date
+                    <img src="./assets/imgs/arrow-up.png" *ngIf="dateOrder == 'ASC'" style="margin-left: 10px; width: 12px;" />
+                    <img src="./assets/imgs/arrow-down.png" *ngIf="dateOrder == 'DESC'" style="margin-left: 10px; width: 12px;" />
+                </div>
+                <div class="fields field-3">
+                    Shape
+                </div>
+                <div class="fields field-4">
+                    Carat
+                </div>
+                <div class="fields field-5">
+                    Color
+                </div>
+                <div class="fields field-6">
+                    Clarity
+                </div>
+                <div class="fields field-7">
+                    Lab
+                </div>
+                <div class="fields field-8">
+                    Cert No.
+                </div>
+                <div class="fields field-9">
+                    Total HKD
+                </div>
+                <div class="fields field-9">
+                    Category
+                </div>
+                <div class="fields field-10">
+                    Customer
+                </div>
+                <div class="fields field-11">
+                    Mobile No
+                </div>
+                <div class="fields field-12">
+                    Appoint By
+                </div>
+                <div class="fields field-13">
+                    Serve By
+                </div>
+            </div>
+            <div class="list-item-container" *ngFor="let data of searchResultData">
+                <div class="fields field-1" [ngClass]="{'edit-fields': data.IS_INVOICE_UPLOADED == 1}" (click)="showImage(data.INVOICE_NO, data.IS_INVOICE_UPLOADED)">
+                    {{data.INVOICE_NO}}
+                </div>
+                <div class="fields field-2">
+                    {{data.SALE_DATE}}
+                </div>
+                <div class="fields field-3">
+                    {{ data.S_CODE }}
+                </div>
+                <div class="fields field-4">
+                    {{data.CARAT}}
+                </div>
+                <div class="fields field-5">
+                    {{data.C_CODE}}
+                </div>
+                <div class="fields field-6">
+                    {{data.Q_CODE}}
+                </div>
+                <div class="fields field-7">
+                    {{data.CR_CODE}}
+                </div>
+                <div class="fields field-8">
+                    {{data.CRNO}}
+                </div>
+                <div class="fields field-9">
+                    ${{data.TOTAL_HKD}}
+                </div>
+                <div class="fields field-9">
+                    {{data.CAT_CODE}}
+                </div>
+                <div class="fields field-10">
+                    {{data.CUSTOMER_NAME}}
+                </div>
+                <div class="fields field-11">
+                    {{data.MOBILE_NO}}
+                </div>
+                <div class="fields field-12">
+                    {{data.APPOINT_BY}}
+                </div>
+                <div class="fields field-13">
+                    {{data.SERVE_BY}}
+                </div>
+            </div>
+            <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </div>
+</ion-content>

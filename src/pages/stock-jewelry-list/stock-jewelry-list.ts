@@ -90,7 +90,6 @@ export class StockJewelryListPage {
                 pageOption: ''
             });
         }
-       
     }
 
     changeGrid(event) {

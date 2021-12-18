@@ -24,6 +24,7 @@ export class StockJewelryMenuPage {
     @ViewChild('imgBtn3') imgBtn3: ElementRef;
     @ViewChild('imgBtn4') imgBtn4: ElementRef;
     @ViewChild('imgBtn5') imgBtn5: ElementRef;
+    
 
     constructor(
         public navCtrl: NavController,
@@ -52,6 +53,7 @@ export class StockJewelryMenuPage {
             this.renderer.setElementStyle(this.imgBtn3.nativeElement, 'opacity', '1');
             this.renderer.setElementStyle(this.imgBtn4.nativeElement, 'opacity', '1');
             this.renderer.setElementStyle(this.imgBtn5.nativeElement, 'opacity', '1');
+            
         // }, 2000);
     }
 
@@ -60,6 +62,7 @@ export class StockJewelryMenuPage {
     }
 
     openListPage(params) {
+        console.log('params', params);
         if (params === 1) {
             this.renderer.setElementStyle(this.imgBtn1.nativeElement, 'opacity', '0.5');
         } else if (params === 2) {

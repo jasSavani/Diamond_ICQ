@@ -18,14 +18,14 @@
 <ion-content  class="grid-basic-page">
 
     <!-- Shape -->
-    <div *ngIf="hideme" class="search-block" style="margin-top: env(safe-area-inset-top);">
+    <div *ngIf="hideme" class="search-block">
 
         <!-- Shape -->
         <ion-grid class="filter-block shape">
 
             <ion-row>
                 <ion-col col-3 class="shape-col2" *ngFor="let shape of shapeArray;">
-                    <div class="shape-box shape-box1 " [ngClass]="{'active': shape.active}" (click)="colorClass(shape)">
+                    <div class="shape-box shape-box1 " style="padding: 5px;"  [ngClass]="{'active': shape.active}" (click)="colorClass(shape)">
                         <img [src]="shape.image" class="shape-img" />
                         <span> {{shape.name}} </span>
                     </div>
@@ -61,11 +61,11 @@
 
         <!--Size  -->
 
-        <ion-grid class="filter-block carat">
-            <ion-row>
-                <ion-col class="shape-col">
+            <ion-grid class="filter-block carat">
+                <ion-row>
+                    <ion-col class="shape-col">
 
-                    <p class="filter-label2">
+                        <p class="filter-label2">
                         <span>Carat</span>
                     </p>
                 </ion-col>
@@ -74,12 +74,10 @@
                     <ion-input [(ngModel)]="searchPost.fcarat" type="number" placeholder="From" class="fitler-input">
                     </ion-input>
                 </ion-col>
-
                 <ion-col>
                     <ion-input [(ngModel)]="searchPost.tcarat" type="number" placeholder="To" class="fitler-input">
                     </ion-input>
                 </ion-col>
-
                 <ion-col col-4>
                     <ion-list>
                         <ion-item>
@@ -101,7 +99,6 @@
                 <ion-col col-3 class="shape-col">
                     <p class="filter-label2" style="line-height: 20px;margin: 6px 0;">
                         <span class="c-box " style="padding-top: 7px;">Color</span>
-
                     </p>
                 </ion-col>
                 <!--white color  -->
@@ -124,7 +121,6 @@
         </ion-grid>
 
         <!--  clarity-->
-
         <ion-grid class="filter-block scrollbox ">
             <ion-row>
                 <ion-col col-3 class="shape-col">
@@ -140,21 +136,14 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-
-
-
         <ion-grid>
             <ion-row style="padding:5px 0;">
-
                 <ion-col style="width:33% !important">
                     <div class="shape-box " [ngClass]="{'active': searchPost.isfancy}" (click)="isFancy()">Fancy</div>
                 </ion-col>
-
- 
                 <ion-col style="width:33% !important">
                     <div class="shape-box " [ngClass]="{'active': searchPost.ex}" (click)="exFilterSet()">3EX</div>
                 </ion-col>
-
                 <ion-col style="width:33% !important">
                     <div class="shape-box " [ngClass]="{'active': isAdvance}" (click)="advanceFilter(!isAdvance)">
                         Advance
@@ -163,9 +152,7 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-
         <div *ngIf="isAdvance">
-
             <ion-grid class="filter-block scrollbox ">
                 <ion-row>
                     <ion-col col-3 class="shape-col">
@@ -181,8 +168,6 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-
-
             <ion-grid class="filter-block scrollbox ">
                 <ion-row>
                     <ion-col col-3 class="shape-col">
@@ -198,7 +183,6 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-
             <ion-grid class="filter-block scrollbox ">
                 <ion-row>
                     <ion-col col-3 class="shape-col">
@@ -231,7 +215,6 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-
         </div>
 
         <ion-row style="padding:5px 0;">
@@ -240,39 +223,14 @@
                     class="fitler-input">
                 </ion-input>
             </ion-col>
-
             <ion-col style="width:50% !important;float: left;flex: auto;">
                 <ion-input [(ngModel)]="searchPost.price_to" type="text" placeholder="Enter Price To"
                     class="fitler-input">
                 </ion-input>
             </ion-col>
         </ion-row>
-
-
         <ion-grid class="filter-block scrollbox ">
             <ion-row>
-                <ion-col>
-                    <p class="filter-label2"  style="padding-left: 10;">
-                        <span>Certi No.</span>
-                    </p>
-                </ion-col>
-                <ion-col>
-                    <p class="filter-label2"  style="padding-left: 10;">
-                        <span>Ad No.</span>
-                    </p>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col>
-                    <ion-input [(ngModel)]="searchPost.certificate" type="text" placeholder="Enter Certi No/ICQ No"
-                        class="fitler-input"></ion-input>
-                </ion-col>
-                <ion-col>
-                    <ion-input [(ngModel)]="searchPost.ad_no" type="text" placeholder="Ad Number"
-                        class="fitler-input"></ion-input>
-                </ion-col>
-            </ion-row>
-            <!-- <ion-row>
                 <ion-col col-12>
                     <p class="filter-label2">
                         <span>Certi No/ICQ No</span>
@@ -282,7 +240,7 @@
                     <ion-input [(ngModel)]="searchPost.certificate" type="text"
                         placeholder="Enter Certification No/ICQ No" class="fitler-input"></ion-input>
                 </ion-col>
-            </ion-row>  -->
+            </ion-row>
         </ion-grid>
 
         <!-- Certificate -->
@@ -295,38 +253,23 @@
                 </ion-col>
             </ion-row>
         </ion-grid>
-
-
         <ion-grid>
             <ion-row style="padding:5px 0;">
-
                 <ion-col style="width:50% !important">
                     <div class="shape-box" [ngClass]="{'active': searchPost.isMEMO}" (click)="selectMEMO()">MEMO</div>
                 </ion-col>
-
-
                 <ion-col style="width:50% !important">
                     <div class="shape-box" [ngClass]="{'active': searchPost.isOUT}" (click)="selectOUT()">OUT</div>
                 </ion-col>
             </ion-row>
         </ion-grid>
-
-
     </div>
 
-
-
-
-
-
-
-
-    <p class="filter-button" style="padding-bottom:0px;margin: 0px;margin-bottom: env(safe-area-inset-bottom);" ion-fixed>
+    <p class="filter-button" style="padding-bottom:0px;margin: 0px;" ion-fixed>
         <button ion-button full (click)="resetPost()"
             style="padding-bottom:0px;margin: 0px !important;height:45px; width: 50%;">Reset</button>
         <button ion-button full (click)="search()"
             style="padding-bottom:0px;margin: 0px !important;height:45px; width: 50%;">Search</button>
-
     </p>
 
     <p padding></p>

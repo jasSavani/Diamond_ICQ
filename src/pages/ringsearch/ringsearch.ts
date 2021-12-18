@@ -255,6 +255,8 @@ export class RingsearchPage {
 
             this.searchPost.cat_code = this.navParams.get("pageOption");
             this.pageOption =  this.navParams.get("pageOption");
+
+            console.log('pageOption', this.pageOption);
     }
 
 
@@ -665,7 +667,7 @@ export class RingsearchPage {
         this.searchPost.isfancy = 0;
         this.searchPost.fcolor = "";
         this.searchPost.certificate = "";
-        this.searchPost.ad_no = "";
+        this.searchPost.ad_no = "",
         this.searchPost.ex = 0;
         this.searchPost.design_no = "";
         this.searchPost.consign_no = "";

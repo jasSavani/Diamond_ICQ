@@ -23,7 +23,7 @@
     <!-- <ion-scroll scrollX="true" direction="x"> -->
     <div class="data-table">
 
-        <ion-grid class="grid-title" style="overflow-x: auto;">
+        <ion-grid class="grid-title">
 
             <ion-row>
                 <ion-col class="hc5" *ngIf="searchPost.isMEMO == 0 && userName == 'admin'" >
@@ -120,6 +120,7 @@
                     <div class="d-bottom">
                         <span *ngIf="result.IS_FANCY ==0">{{result.C_NAME}}</span>
                         <span *ngIf="result.IS_FANCY ==1">{{result.COLORNAME}}</span>
+
                     </div>
                 </ion-col>
                 <ion-col class="hc4">
@@ -197,7 +198,6 @@
                     <div class="d-bottom">
                         <span>{{result.COL}}</span>
                         <!-- <span *ngIf="result.IS_FANCY == 1">{{result.COLORNAME}}</span> -->
-
                     </div>
                 </ion-col>
                 <ion-col class="hc4">
@@ -213,21 +213,18 @@
                 </ion-col>
 
                 <ion-col class="hc7">
-
                     <div overflow-scroll=true class="d-bottom">
                         <span>{{result.HKD | number:'4.0-0' }}</span>
                     </div>
                 </ion-col>
 
                 <ion-col class="hc1" (click)="openLink(result.CERTIFICATE_LINK)">
-
                     <div style="position:relative" overflow-scroll=true class="d-bottom">
                         <span>{{result.CERT}}</span>
                     </div>
                 </ion-col>
 
                 <ion-col class="hc6" (click)="copyTxt(result.CRNO)">
-
                     <div style="position:relative" overflow-scroll=true class="d-bottom">
                         <span>{{result.CRNO}}</span>
                     </div>

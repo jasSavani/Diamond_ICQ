@@ -5,14 +5,15 @@ import { GlobalServiceProvider } from '../../providers/global-service/global-ser
 
 import { ShapePipe } from '../../pipes/shape/shape';
 
+
 @IonicPage()
 @Component({
     selector: 'page-search',
     templateUrl: 'search.html',
+
 })
 
 export class SearchPage {
-
     public isMEMO = 1;
     public isOUT = 0;
     public activeClass: any = false;
@@ -184,8 +185,8 @@ export class SearchPage {
     public searchPost = {
         isMEMO: 1,
         isOUT: 0,
-        fcarat: 0,
-        tcarat: 0, 
+        fcarat: "",
+        tcarat: "",
         caratlist: '',
         color: '',
         shape: '',
@@ -195,10 +196,9 @@ export class SearchPage {
         isfancy: 0,
         fcolor: '',
         certificate: '',
-        ad_no: '',
         ex: 0,
         lab: '',
-
+        
 
         cut: '',
         pol: '',
@@ -476,8 +476,8 @@ export class SearchPage {
             c.active = false;
         });
 
-        this.searchPost.fcarat = 0;
-        this.searchPost.tcarat = 0;
+        this.searchPost.fcarat = "";
+        this.searchPost.tcarat = "";
         this.searchPost.caratlist = '';
         this.caratlist = "";
         this.disMin = '0';
@@ -495,11 +495,10 @@ export class SearchPage {
         this.searchPost.isfancy = 0;
         this.searchPost.fcolor = "";
         this.searchPost.certificate = "";
-        this.searchPost.ad_no = "";
         this.searchPost.ex = 0;
 
-        this.searchPost.price_from = "",
-        this.searchPost.price_to = ""
+        this.searchPost.price_from = "";
+        this.searchPost.price_to = "";
 
 
         this.searchResult = [];

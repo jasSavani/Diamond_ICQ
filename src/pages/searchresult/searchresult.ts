@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams, ToastController } from 'ionic-angular';
 import { GlobalServiceProvider } from '../../providers/global-service/global-service';
+
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { ShapePipe } from '../../pipes/shape/shape';
 import { Clipboard } from '@ionic-native/clipboard';
-
 
 /**
  * Generated class for the SearchresultPage page.
@@ -19,6 +19,8 @@ import { Clipboard } from '@ionic-native/clipboard';
     templateUrl: 'searchresult.html',
 })
 export class SearchresultPage {
+
+
     public fcarat: number = 0;
     public tcarat: number = 0;
     public stoneid = '';
@@ -33,6 +35,8 @@ export class SearchresultPage {
     public caratlist: any = '';
     public userName: any;
 
+
+
     public searchPost: any;
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController,
@@ -40,7 +44,9 @@ export class SearchresultPage {
 
         this.searchPost = navParams.get('searchPost');
         console.log('searchresultPage', this.searchPost);
-        this.userName = localStorage.getItem('username');
+        this.userName = localStorage.getItem('icq-username');
+        console.log('userName', this.userName);
+
         this.search();
     }
 
@@ -52,7 +58,6 @@ export class SearchresultPage {
 
     copyTxt(txt) {
         this.clipboard.copy(txt);
-
         let toast = this.toastCtrl.create({
             message: 'Text copied',
             duration: 2000,
@@ -61,9 +66,13 @@ export class SearchresultPage {
         toast.present();
     }
 
+
     search() {
+
         this.searchPost.page = 1;
         this.isData = 0;
+
+
         let loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });
@@ -71,32 +80,44 @@ export class SearchresultPage {
         loading.present();
 
         let partList: any;
+
         console.log("searchPost: ", this.searchPost);
 
+
         this.globalServiceProvider.apicall('Search', this.searchPost).then((success: any) => {
+
+
             console.log("search : " + this.searchPost.page);
             this.searchResult = success;
             this.totalCount = this.searchResult.length;
             if (this.searchResult.length) {
+
                 this.isData = 1;
                 this.totalRecord = this.searchResult[0].TotalCount;
                 this.totalPage = Math.ceil(this.totalRecord / 50);
                 this.totalCount = this.searchResult.length;
             }
+            // this.resetAll();
 
             console.log(success);
             loading.dismiss();
         })
             .catch((error) => {
                 this.isData = 1;
+                console.error('API Error : ', error);
+
                 let toast = this.toastCtrl.create({
                     message: error,
                     duration: 3000,
                     position: 'middle'
                 });
                 loading.dismiss();
+
             });
+
     }
+
+
 
     doInfinite(infiniteScroll) {
         this.searchPost.page++;

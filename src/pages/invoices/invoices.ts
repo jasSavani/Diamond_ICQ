@@ -225,7 +225,6 @@ export class InvoicesPage {
             
                     // this.photoViewer.show(url, 'Test', { share: true });
                     this.photoViewer.show(success.image, 'Invoice Image', options);
-                    // this.photoViewer.show(success.image);
                 }
             }).catch((error) => {
                 console.error('API Error : ', error);

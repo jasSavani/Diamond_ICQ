@@ -6,9 +6,13 @@
 -->
 <ion-header class="search-header">
     <ion-navbar>
-        <!-- <ion-toolbar> -->
-            <ion-title style="margin-top: 20px;">Filter</ion-title>
-        <!-- </ion-toolbar> -->
+        <ion-toolbar>
+            <ion-title >Filter</ion-title>
+            <!-- <ion-title *ngIf="pageOption == 2">Search Earrings</ion-title>
+            <ion-title *ngIf="pageOption == 4">Search Pendant</ion-title>
+            <ion-title *ngIf="pageOption == 0">Search Others</ion-title> -->
+
+        </ion-toolbar>
     </ion-navbar>
 </ion-header>
 <ion-content fullpage class="grid-basic-page">
@@ -317,13 +321,9 @@
                 <ion-scroll scrollX="true" direction="x" style="height: 60px;">
                     <ion-col *ngFor="let shape of  certificateArray;let i = index" (click)="colorClass(shape)"
                         style="text-align: center;">
-                        <div *ngIf="shape.image" class="shape-box shape-box1 shape-box2 " style="width: 70px;"
+                        <div class="shape-box shape-box1 shape-box2 " style="width: 70px;"
                             [ngClass]="{'active': shape.active}">
-                            <img  [src]="shape.image" class="shape-img" />
-                            
-                        </div>
-                        <div *ngIf="!shape.image" class="shape-box shape-box1 shape-box2 " style="width: 70px;"
-                            [ngClass]="{'active': shape.active}">
+                            <img *ngIf="shape.image" [src]="shape.image" class="shape-img" />
                             <div *ngIf="!shape.image" style="height: 50px;
                             white-space: normal;
                             font-weight: bold;

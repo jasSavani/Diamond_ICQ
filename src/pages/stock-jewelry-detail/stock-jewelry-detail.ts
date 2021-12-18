@@ -113,7 +113,7 @@ export class StockJewelryDetailPage {
 
     shareImage() {
         let index = this.slides.getActiveIndex();
-        let url = this.detailData.RingImage[index - 1];
+        let url =  this.detailData.RingImage[index-1];
 
         if (this.isAndroid) {
             this.socialSharing.shareViaWhatsApp('', url, '').then((res) => {
@@ -140,12 +140,12 @@ export class StockJewelryDetailPage {
         if (index > this.detailData.RingImage.length) {
             isVideo = true;
             downloadURL = this.detailData.video;
-        } else {
+        } else  {
             isVideo = false;
-            downloadURL = this.detailData.RingImage[index - 1];
+            downloadURL =  this.detailData.RingImage[index-1];
         }
-
-
+    
+        
         if (this.isAndroid) {
             targetURL = this.file.externalRootDirectory
         } else {
@@ -163,22 +163,22 @@ export class StockJewelryDetailPage {
                 // handle error
                 console.log('error Image');
                 console.log(error);
-
+    
             });
         } else {
             this.fileTransfer.download(downloadURL, targetURL + 'download/' + Date.now() + '.jpg').then((entry) => {
                 console.log('download complete: ', entry);
                 // this.presentToast(entry.toURL());
                 this.presentToast('Download image successfully...')
-
+    
             }, (error) => {
                 // handle error
                 console.log('error Image');
                 console.log(error);
-
+    
             });
         }
-
+    
     }
 
     openCert(url) {
@@ -198,6 +198,7 @@ export class StockJewelryDetailPage {
         console.log(downloadURL);
 
         let targetURL: any;
+
         if (this.isAndroid) {
             targetURL = this.file.externalRootDirectory
         } else {

@@ -447,7 +447,7 @@ export class CustomerListViewPage {
         });
         this.searchPost.a_lab_type = temp.join(',');
 
-
+        
         delete this.searchPost.ex;
         delete this.searchPost.userid;
         delete this.searchPost.page;
@@ -459,11 +459,11 @@ export class CustomerListViewPage {
         let day = date.getDate();
 
         let hours = date.getHours();
-        let minute: any = date.getMinutes();
+        let minute: any =  date.getMinutes();
 
         this.searchPost.a_date = year + '-' + month + '-' + day;
-
-
+        
+        
         if (minute < 10) {
             minute = '0' + minute;
         }
@@ -471,7 +471,7 @@ export class CustomerListViewPage {
         this.searchPost.a_time = hours + ':' + minute;
 
 
-        console.log("searchPost 123: ", this.searchPost.a_time);
+        console.log("searchPost 123: ",this.searchPost.a_time);
         let loading = this.loadingCtrl.create({
             content: 'Please wait...'
         });

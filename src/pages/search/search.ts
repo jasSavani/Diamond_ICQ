@@ -185,7 +185,7 @@ export class SearchPage {
         isMEMO: 1,
         isOUT: 0,
         fcarat: 0,
-        tcarat: 0,
+        tcarat: 0, 
         caratlist: '',
         color: '',
         shape: '',
@@ -195,6 +195,7 @@ export class SearchPage {
         isfancy: 0,
         fcolor: '',
         certificate: '',
+        ad_no: '',
         ex: 0,
         lab: '',
 
@@ -494,6 +495,7 @@ export class SearchPage {
         this.searchPost.isfancy = 0;
         this.searchPost.fcolor = "";
         this.searchPost.certificate = "";
+        this.searchPost.ad_no = "";
         this.searchPost.ex = 0;
 
         this.searchPost.price_from = "",

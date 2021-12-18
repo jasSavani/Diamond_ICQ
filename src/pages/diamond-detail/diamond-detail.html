@@ -30,7 +30,7 @@
                         </div>
                         <img *ngIf="!image" src="./assets/imgs/no-image.png" class="slide-image ni-slide" />
                     </ion-slide>
-                   
+
                 </ion-slides>
             </div>
             <div *ngSwitchCase="'video'">
@@ -92,7 +92,91 @@
         </ion-segment>
     </div>
 
-    <ion-list class="information">
+    <div class="bottom-container" *ngIf="stonedata">
+        <div class="bottom-top-container">
+            <div class="price-txt">
+                $ {{stonedata.HKD_AMOUNT}}
+                <!-- $ {{detailData.RING_PRICE}} -->
+            </div>
+            <div style="flex-direction: row;
+            display: flex;">
+                <!-- {{detailData.DISPLAY_NO}} -->
+                <div class="middle-price-txt" *ngIf="stonedata.DISPLAY_NO">{{stonedata.DISPLAY_NO}}</div>
+                <div *ngIf="stonedata.pos" class="middle-price-txt" style="margin-left: 5px !important;"> {{stonedata.pos}} </div>
+            </div>
+            <div class="other-price-txt" *ngIf="userName == 'admin'">
+                <div>Rate (USD) : $ {{stonedata.RATE}} </div>
+                <div>Amount (USD) : $ {{stonedata.AMOUNT}} </div>
+                <div>Company : {{stonedata.COMPANY_CODE}} </div>
+            </div>
+        </div>
+        <div class="bottom-detail-container">
+            <div class="detail-title">
+                Stone Details
+            </div>
+            <div class="detail-data">
+                <div class="detail-data-1">
+                    <div>{{stonedata.S_NAME}}</div>
+                    <div>{{stonedata.CARAT}}</div>
+                    <div *ngIf="stonedata.IS_FANCY">{{stonedata.COLORNAME}}</div>
+                    <div *ngIf="!stonedata.IS_FANCY">{{stonedata.C_NAME}}</div>
+                    <div>{{stonedata.Q_NAME}}</div>
+                    <div>{{stonedata.CUT}}</div>
+                    <div>{{stonedata.POL}}</div>
+                    <div>{{stonedata.SYM}}</div>
+                    <div>{{stonedata.FL_NAME}}</div>
+                </div>
+
+                <div class="detail-data-2">
+                    <!-- <div>GIA : {{stonedata.CRNO}} </div> -->
+                    <div>GIA : <span class="edit-fields" (click)="openCert(stonedata.CRNO)">{{stonedata.CRNO}}</span></div>
+                    <div>STONE ID : {{stonedata.STONEID}}</div>
+                </div>
+            </div>
+
+            <div class="detail-title" style="width: 145px; display: block; margin-top: 15px;">
+                Additional Info.
+            </div>
+            <div class="detail-data-block-2 detail-block-top">
+                <div class="detail-left"  *ngIf="userName == 'admin'">
+                    <ion-row >
+                        <ion-col col-5>Memo Date</ion-col>
+                        <ion-col>: {{stonedata.memo_date}}</ion-col>
+                    </ion-row>
+                </div>
+                <div class="detail-right">
+                    <ion-row>
+                        <ion-col col-5>NC/SP</ion-col>
+                        <ion-col>: {{stonedata.nc}}</ion-col>
+                    </ion-row>
+                </div>
+            </div>
+            <div class="detail-data-block-2">
+                <div class="detail-left">
+                    <ion-row>
+                        <ion-col col-5>Ad No.</ion-col>
+                        <ion-col>: XXXXXXXXXX</ion-col>
+                    </ion-row>
+                </div>
+                <div class="detail-right">
+                </div>
+            </div>
+            <div class="detail-data-block-2">
+                <!-- <ion-row style="width: 100%;">
+                    <ion-col col-10> -->
+                <ion-input type="text" placeholder="Enter Remarks" [(ngModel)]="stonedata.remarks" class="fitler-input">
+                </ion-input>
+                <!-- </ion-col> -->
+                <!-- <ion-col col-2 style="padding-top: 12px;"> -->
+                <button ion-button full (click)="saveRemark()" style="padding-bottom:0px; width: 50px;
+                            margin-top: 15px; height:30px;">Save</button>
+                <!-- </ion-col>
+                </ion-row> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- <ion-list class="information">
         <ion-item-divider>
             <span class="item-left"> Stone ID</span>
             <span class="item-right">{{stonedata.STONEID}}</span>
@@ -139,9 +223,9 @@
             <span class="item-left"> Florescense</span>
             <span class="item-right">{{stonedata.FL_NAME}}</span>
         </ion-item-divider>
-    </ion-list>
+    </ion-list> -->
 
-    <ion-list>
+    <!-- <ion-list>
         <ion-item-divider>
             <span class="item-left d-header"> Pricing Details</span>
         </ion-item-divider>
@@ -161,9 +245,9 @@
             <span class="item-left"> HK Amount</span>
             <span class="item-right">{{stonedata.HKD_AMOUNT}}</span>
         </ion-item-divider>
-    </ion-list>
+    </ion-list> -->
 
-    <ion-list>
+    <!-- <ion-list>
         <ion-item-divider>
             <span class="item-left d-header">Remarks</span>
         </ion-item-divider>
@@ -177,9 +261,9 @@
                     style="padding-bottom:0px;margin: 0px !important;height:45px; width: 25%;">Save</button>
             </div>
         </div>
-    </ion-list>
+    </ion-list> -->
 
-    <ion-list>
+    <!-- <ion-list>
         <ion-item-divider>
             <span class="item-left d-header"> Additional Information</span>
         </ion-item-divider>
@@ -216,8 +300,8 @@
         </ion-item-divider>
 
         <ion-item-divider>
-            <!-- <span class="item-left"> NC</span> -->
+             <span class="item-left"> NC</span>
             <span class="item-right">{{stonedata.nc}}</span>
         </ion-item-divider>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

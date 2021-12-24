@@ -4,7 +4,7 @@ import { GlobalServiceProvider } from '../../providers/global-service/global-ser
 import { DomSanitizer } from '@angular/platform-browser';
 import { SocialSharing } from '@ionic-native/social-sharing';
 
-// import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 // import { TranslateService } from '@ngx-translate/core';
 import { FileTransfer, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
@@ -54,7 +54,7 @@ export class DiamondDetailPage {
         private globalServiceProvider: GlobalServiceProvider,
         public loadingCtrl: LoadingController,
         public alertCtrl: AlertController,
-        // private iab: InAppBrowser,
+        private iab: InAppBrowser,
         private toastCtrl: ToastController,
         private socialSharing: SocialSharing,
         private androidPermissions: AndroidPermissions
@@ -95,9 +95,10 @@ export class DiamondDetailPage {
         this.navCtrl.pop();
     }
 
-    openCertPDF(certPath) {
+    openCert(certPath) {
         if (certPath) {
             // this.iab.create(certPath, '_system');
+            this.iab.create("https://starrays.com/aspxpages/FrmShowLabPdfFile.aspx?reportno=" + certPath, '_system');
         }
     }
 

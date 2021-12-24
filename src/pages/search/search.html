@@ -231,14 +231,25 @@
         </ion-row>
         <ion-grid class="filter-block scrollbox ">
             <ion-row>
-                <ion-col col-12>
-                    <p class="filter-label2">
-                        <span>Certi No/ICQ No</span>
+                <ion-col>
+                    <p class="filter-label2"  style="padding-left: 10;">
+                        <span>Certi No.</span>
                     </p>
                 </ion-col>
                 <ion-col>
-                    <ion-input [(ngModel)]="searchPost.certificate" type="text"
-                        placeholder="Enter Certification No/ICQ No" class="fitler-input"></ion-input>
+                    <p class="filter-label2"  style="padding-left: 10;">
+                        <span>Ad No.</span>
+                    </p>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input [(ngModel)]="searchPost.certificate" type="text" placeholder="Enter Certi No/ICQ No"
+                        class="fitler-input"></ion-input>
+                </ion-col>
+                <ion-col>
+                    <ion-input [(ngModel)]="searchPost.ad_no" type="text" placeholder="Ad Number"
+                        class="fitler-input"></ion-input>
                 </ion-col>
             </ion-row>
         </ion-grid>

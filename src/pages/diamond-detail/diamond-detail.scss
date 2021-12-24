@@ -13,6 +13,109 @@ page-diamond-detail {
         padding-left: 0px;
     }
 
+    .edit-fields {
+        text-decoration: underline;
+        color: #0000ff;
+    }
+
+    .bottom-container {
+        background-color: #ffffff;
+        padding: 1px 10px;
+
+        .bottom-top-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 15px 0;
+
+            .price-txt {
+                font-size: 15px;
+                background: #857d56;
+                padding: 8px 5px;
+                border-radius: 5px;
+                color: #ffffff;
+                height: 32px;
+            }
+            .middle-price-txt {
+                font-size: 13px;
+                border: 1px solid #857d56;
+                color: #857d56;
+                font-weight: bold;
+                padding: 1px 7px;
+                height: 20px;
+                margin-top: 4px;
+                border-radius: 5px;
+            }
+            .other-price-txt {
+                font-size: 11px;
+            }
+        }
+
+        .bottom-detail-container {
+            padding: 10px 0;
+            .detail-title {
+                display: inline;
+                border-bottom: 2px solid #867b5e;
+                font-size: 20px;
+                font-weight: 500;
+                color: #867b5e;
+            }
+
+            .detail-data {
+                border-top: 2px solid rgba(0,0,0,0.2);
+                color: #8d8d8d;
+
+                .detail-data-1 {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 8px 0;
+                    border-bottom: 1px solid rgba(0,0,0,0.2);
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+
+                .detail-data-2 {
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 8px 0;
+                    font-size: 15px;
+                    font-weight: 500;
+                }
+            }
+
+            .detail-block-top {
+                border-top: 2px solid rgba(0,0,0,0.2);
+            }
+
+            .detail-data-block-2 {
+                border-top: 0.5px solid rgba(185,185,185,0.2);
+                color: #a7a7a7;
+                display: flex;
+                justify-content: space-between;
+                // padding-top: 8px;
+                font-size: 12px;
+                font-weight: bold;
+
+                .detail-left {
+                    width: 50%
+                }
+                .detail-right {
+                    width: 50%;
+
+                    .text-input-md, .text-input-ios {
+                        margin: 5px;
+                    }
+
+                    .fitler-input {
+                        border: 1px solid;
+                        border-radius: 5px;
+                        font-size: 12px;
+                        font-weight: normal;
+                    }
+                }
+            }
+        }
+    }
+
     .ni-sliders {
         text-align   : center;
         display      : block;
@@ -57,7 +160,7 @@ page-diamond-detail {
     }
 
     .ni-slide {
-        width    : 100%;
+        width    : auto;
         max-width: 100% !important;
         margin   : 0px;
     }

@@ -92,131 +92,86 @@
         </ion-segment>
     </div>
 
-    <ion-list class="information">
-        <ion-item-divider>
-            <span class="item-left"> Stone ID</span>
-            <span class="item-right">{{stonedata.STONEID}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Shape</span>
-            <span class="item-right">{{stonedata.S_NAME}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Carat</span>
-            <span class="item-right">{{stonedata.CARAT}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Color</span>
-            <span class="item-right" *ngIf="stonedata.IS_FANCY">{{stonedata.COLORNAME}}</span>
-            <span class="item-right" *ngIf="!stonedata.IS_FANCY">{{stonedata.C_NAME}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Clarity</span>
-            <span class="item-right">{{stonedata.Q_NAME}}</span>
-        </ion-item-divider>
-
-
-        <ion-item-divider>
-            <span class="item-left"> Cut</span>
-            <span class="item-right">{{stonedata.CUT}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Polish</span>
-            <span class="item-right">{{stonedata.POL}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Symm</span>
-            <span class="item-right">{{stonedata.SYM}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Florescense</span>
-            <span class="item-right">{{stonedata.FL_NAME}}</span>
-        </ion-item-divider>
-    </ion-list>
-
-    <ion-list>
-        <ion-item-divider>
-            <span class="item-left d-header"> Pricing Details</span>
-        </ion-item-divider>
-
-        <ion-item-divider *ngIf="userName == 'admin'">
-            <span class="item-left"> Rate</span>
-            <span class="item-right">{{stonedata.RATE}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider *ngIf="userName == 'admin'">
-            <span class="item-left"> Amount </span>
-            <span class="item-right">{{stonedata.AMOUNT}}</span>
-        </ion-item-divider>
-
-
-        <ion-item-divider>
-            <span class="item-left"> HK Amount</span>
-            <span class="item-right">{{stonedata.HKD_AMOUNT}}</span>
-        </ion-item-divider>
-    </ion-list>
-
-    <ion-list>
-        <ion-item-divider>
-            <span class="item-left d-header">Remarks</span>
-        </ion-item-divider>
-
-        <div style="padding:5px 0 15px 0; background: #ffffff; ">
-            <ion-input style="width:74% !important; float: left;" [(ngModel)]="stonedata.remarks" type="text" placeholder="Enter Remarks" class="fitler-input">
-            </ion-input>
-            <div style="margin-top: 10px;">
-                <button ion-button full (click)="saveRemark()"
-                    style="padding-bottom:0px;margin: 0px !important;height:45px; width: 25%;">Save</button>
+    <div class="bottom-container" *ngIf="stonedata">
+        <div class="bottom-top-container">
+            <div class="price-txt">
+                $ {{stonedata.HKD_AMOUNT}}
+                <!-- $ {{detailData.RING_PRICE}} -->
+            </div>
+            <div style="">
+                <!-- {{detailData.DISPLAY_NO}} -->
+                <div class="middle-price-txt" *ngIf="stonedata.DISPLAY_NO">{{stonedata.DISPLAY_NO}}</div>
+                <div *ngIf="stonedata.pos" class="middle-price-txt"> {{stonedata.pos}} </div>
+            </div>
+            <div class="other-price-txt" *ngIf="userName == 'admin'">
+                <div>Rate (USD) : $ {{stonedata.RATE}} </div>
+                <div>Amount (USD) : $ {{stonedata.AMOUNT}} </div>
+                <div>Company : {{stonedata.COMPANY_CODE}} </div>
             </div>
         </div>
-    </ion-list>
+        <div class="bottom-detail-container">
+            <div class="detail-title">
+                Stone Details
+            </div>
+            <div class="detail-data">
+                <div class="detail-data-1">
+                    <div>{{stonedata.S_NAME}}</div>
+                    <div>{{stonedata.CARAT}}</div>
+                    <div *ngIf="stonedata.IS_FANCY">{{stonedata.COLORNAME}}</div>
+                    <div *ngIf="!stonedata.IS_FANCY">{{stonedata.C_NAME}}</div>
+                    <div>{{stonedata.Q_NAME}}</div>
+                    <div>{{stonedata.CUT}}</div>
+                    <div>{{stonedata.POL}}</div>
+                    <div>{{stonedata.SYM}}</div>
+                    <div>{{stonedata.FL_NAME}}</div>
+                </div>
 
-    <ion-list>
-        <ion-item-divider>
-            <span class="item-left d-header"> Additional Information</span>
-        </ion-item-divider>
+                <div class="detail-data-2">
+                    <!-- <div>GIA : {{stonedata.CRNO}} </div> -->
+                    <div>GIA : <span class="edit-fields" (click)="openCert(stonedata.CRNO)">{{stonedata.CRNO}}</span></div>
+                    <div>STONE ID : {{stonedata.STONEID}}</div>
+                </div>
+            </div>
 
-        <ion-item-divider>
-            <span class="item-left"> Display</span>
-            <span class="item-right">{{stonedata.DISPLAY_NO}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Pos</span>
-            <span class="item-right">{{stonedata.pos}}</span>
-        </ion-item-divider>
-
-
-        <ion-item-divider *ngIf="userName == 'admin'">
-            <span class="item-left"> Company</span>
-            <span class="item-right">{{stonedata.COMPANY_CODE}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Lab</span>
-            <span class="item-right">{{stonedata.CR_NAME}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <span class="item-left"> Certificate No</span>
-            <span class="item-right">{{stonedata.CRNO}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider *ngIf="userName == 'admin'">
-            <span class="item-left"> Memo Date</span>
-            <span class="item-right">{{stonedata.memo_date}}</span>
-        </ion-item-divider>
-
-        <ion-item-divider>
-            <!-- <span class="item-left"> NC</span> -->
-            <span class="item-right">{{stonedata.nc}}</span>
-        </ion-item-divider>
-    </ion-list>
+            <div class="detail-title" style="width: 145px; display: block; margin-top: 15px;">
+                Additional Info.
+            </div>
+            <div class="detail-data-block-2 detail-block-top">
+                <div class="detail-left"  *ngIf="userName == 'admin'">
+                    <ion-row >
+                        <ion-col col-5>Memo Date</ion-col>
+                        <ion-col>: {{stonedata.memo_date}}</ion-col>
+                    </ion-row>
+                </div>
+                <div class="detail-right">
+                    <ion-row>
+                        <ion-col col-5>NC/SP</ion-col>
+                        <ion-col>: {{stonedata.nc}}</ion-col>
+                    </ion-row>
+                </div>
+            </div>
+            <div class="detail-data-block-2">
+                <div class="detail-left">
+                    <ion-row>
+                        <ion-col col-5>Ad No.</ion-col>
+                        <ion-col>: {{stonedata.AD_NO}}</ion-col>
+                    </ion-row>
+                </div>
+                <div class="detail-right">
+                </div>
+            </div>
+            <div class="detail-data-block-2">
+                <!-- <ion-row style="width: 100%;">
+                    <ion-col col-10> -->
+                <ion-input type="text" placeholder="Enter Remarks" [(ngModel)]="stonedata.remarks" class="fitler-input">
+                </ion-input>
+                <!-- </ion-col> -->
+                <!-- <ion-col col-2 style="padding-top: 12px;"> -->
+                <button ion-button full (click)="saveRemark()" style="padding-bottom:0px; width: 50px;
+                            margin-top: 15px; height:30px;">Save</button>
+                <!-- </ion-col>
+                </ion-row> -->
+            </div>
+        </div>
+    </div>
 </ion-content>

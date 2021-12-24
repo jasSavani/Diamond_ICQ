@@ -98,11 +98,10 @@
                 $ {{stonedata.HKD_AMOUNT}}
                 <!-- $ {{detailData.RING_PRICE}} -->
             </div>
-            <div style="flex-direction: row;
-            display: flex;">
+            <div>
                 <!-- {{detailData.DISPLAY_NO}} -->
                 <div class="middle-price-txt" *ngIf="stonedata.DISPLAY_NO">{{stonedata.DISPLAY_NO}}</div>
-                <div *ngIf="stonedata.pos" class="middle-price-txt" style="margin-left: 5px !important;"> {{stonedata.pos}} </div>
+                <div *ngIf="stonedata.pos" class="middle-price-txt"> {{stonedata.pos}} </div>
             </div>
             <div class="other-price-txt" *ngIf="userName == 'admin'">
                 <div>Rate (USD) : $ {{stonedata.RATE}} </div>

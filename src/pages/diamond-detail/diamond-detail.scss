@@ -30,23 +30,23 @@ page-diamond-detail {
             .price-txt {
                 font-size: 15px;
                 background: #857d56;
-                padding: 8px;
+                padding: 6px 5px;
                 border-radius: 5px;
                 color: #ffffff;
                 height: 32px;
             }
             .middle-price-txt {
-                font-size: 15px;
+                font-size: 13px;
                 border: 1px solid #857d56;
                 color: #857d56;
                 font-weight: bold;
-                padding: 3px 10px;
-                height: 25px;
+                padding: 1px 7px;
+                height: 20px;
                 margin-top: 4px;
                 border-radius: 5px;
             }
             .other-price-txt {
-                font-size: 12px;
+                font-size: 11px;
             }
         }
 
@@ -58,6 +58,7 @@ page-diamond-detail {
                 font-size: 20px;
                 font-weight: 500;
                 color: #867b5e;
+                padding-right: 5px;
             }
 
             .detail-data {
